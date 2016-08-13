@@ -163,6 +163,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PicturesController.cs" />
+    <Compile Include="Controllers\SectionDetails.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,7 +177,16 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\ml1.png" />
+    <Content Include="Content\Images\ft.png" />
+    <Content Include="Content\Images\ft1.jpg" />
+    <Content Include="Content\Images\ft2.jpg" />
+    <Content Include="Content\Images\ft3.jpg" />
+    <Content Include="Content\Images\pr.png" />
+    <Content Include="Content\Images\mt.png" />
+    <Content Include="Content\Images\pt.png" />
+    <Content Include="Content\Images\pt1.jpg" />
+    <Content Include="Content\Images\pt2.jpg" />
+    <Content Include="Content\Images\pt3.jpg" />
     <Content Include="Content\Images\up.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -230,6 +241,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Pictures\SetSectionTutoPic.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
