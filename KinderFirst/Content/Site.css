@@ -22,3 +22,15 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.bigpic{
+        float: left;
+    width: 60%;
+    height: auto;
+}
+.left{
+    float:right;
+}
+.picmain{
+    width:25%;
+}
