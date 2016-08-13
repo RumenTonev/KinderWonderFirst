@@ -24,7 +24,7 @@ namespace KinderFirst.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        public DbSet<TutoPicture> TutoPictures { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -3,20 +3,28 @@
 
 @{
 <div class="row">
-    <div class="col-sm-4">      
-        <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}1.jpg",Model.Id))" />
-        </div>
+    <div class="col-sm-4">   
+        <a href="@Url.Action("SetTutorialTutoPic", "Pictures", new  {id=String.Format("{0}1",Model.Id)})">
+            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}1.jpg",Model.Id))" />
+        </a>
+</div>
        
 
     <div class="col-sm-4">
-        <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}2.jpg",Model.Id))" />
-    </div>
+        <a href="@Url.Action("SetTutorialTutoPic", "Pictures", new  {id=String.Format("{0}2",Model.Id)})">
+            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}2.jpg",Model.Id))" />
+            </a>
+</div>
     <div class="col-sm-4">
-        <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}3.jpg",Model.Id))" />
-    </div>
+        <a href="@Url.Action("SetTutorialTutoPic", "Pictures", new  {id=String.Format("{0}3",Model.Id)})">
+            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}3.jpg",Model.Id))" />
+            </a>
+</div>
 </div>
 }
 
- 
+ <a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="pt"})">
+    <img class="img-responsive  img-circle picmain left" src="~/Content/Images/pt.png" />
+</a>
 
 

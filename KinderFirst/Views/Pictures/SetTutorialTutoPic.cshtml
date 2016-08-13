@@ -1,0 +1,14 @@
+﻿@model IEnumerable<KinderFirst.Models.TutoPicture>
+@{
+    ViewBag.Title = "SetTutorialTutoPic";
+}
+ <div class="row">
+@foreach (var item in Model)
+{
+
+                <div class="left">
+                    <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}{1}.jpg",item.TutoId,item.Number))"/>
+                </div>
+}
+</div>
+               
