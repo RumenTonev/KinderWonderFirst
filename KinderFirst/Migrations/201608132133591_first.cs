@@ -3,7 +3,7 @@ namespace KinderFirst.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class tutocreated : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {
@@ -34,9 +34,11 @@ namespace KinderFirst.Migrations
                 "dbo.TutoPictures",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
                         Number = c.String(),
+                        Path = c.String(),
                         TutoId = c.String(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id);
             

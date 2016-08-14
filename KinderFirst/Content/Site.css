@@ -34,3 +34,6 @@ textarea {
 .picmain{
     width:25%;
 }
+.hiddenPic{
+    display:none;
+}

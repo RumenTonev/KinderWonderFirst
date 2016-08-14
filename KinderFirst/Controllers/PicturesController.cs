@@ -9,7 +9,7 @@ namespace KinderFirst.Controllers
 {
     public class PicturesController : Controller
     {
-        public ApplicationDbContext db = ApplicationDbContext.Create();
+       // public ApplicationDbContext db = ApplicationDbContext.Create();
         // GET: Pictures
         public ActionResult Index()
         {
@@ -25,10 +25,13 @@ namespace KinderFirst.Controllers
         [HttpGet]
         public ActionResult SetTutorialTutoPic(string id)
         {
-          
-            var result = db.TutoPictures.Where(x => x.TutoId == id);
-            return View(result);
+            using (ApplicationDbContext db = ApplicationDbContext.Create())
+            {
+                var result = db.TutoPictures.Where(x => x.TutoId == id).ToList();
+                return View(result);
+            }
         }
+
 
    
     }

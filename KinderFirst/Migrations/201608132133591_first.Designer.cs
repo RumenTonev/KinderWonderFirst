@@ -7,13 +7,13 @@ namespace KinderFirst.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.1-30610")]
-    public sealed partial class tutocreated : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(tutocreated));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "201608131720559_tutocreated"; }
+            get { return "201608132133591_first"; }
         }
         
         string IMigrationMetadata.Source

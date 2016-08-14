@@ -3,28 +3,48 @@
 
 @{
 <div class="row">
-    <div class="col-sm-4">   
-        <a href="@Url.Action("SetTutorialTutoPic", "Pictures", new  {id=String.Format("{0}1",Model.Id)})">
+    <div class="col-sm-3">   
+        <a href="#" onclick="ChangePic(1)">
             <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}1.jpg",Model.Id))" />
         </a>
-</div>
-       
 
-    <div class="col-sm-4">
-        <a href="@Url.Action("SetTutorialTutoPic", "Pictures", new  {id=String.Format("{0}2",Model.Id)})">
+        <a href="#" onclick="ChangePic(2)">
             <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}2.jpg",Model.Id))" />
-            </a>
-</div>
-    <div class="col-sm-4">
-        <a href="@Url.Action("SetTutorialTutoPic", "Pictures", new  {id=String.Format("{0}3",Model.Id)})">
+        </a>
+
+        <a href="#" onclick="ChangePic(3)">
             <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}3.jpg",Model.Id))" />
-            </a>
+        </a>
 </div>
+    <div class="col-sm-9">
+
+        <a href="#" id="1" class="mine">
+            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}1Big.jpg",Model.Id))" />
+        </a>
+
+        <a href="#" id="2" class="mine hiddenPic">
+            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}2Big.jpg",Model.Id))" />
+        </a>
+
+        <a href="#" id="3" class="mine hiddenPic">
+            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}3Big.jpg",Model.Id))" />
+        </a>
+        
+    </div>
+    <script>
+        function ChangePic(number) {
+            $(".mine").each(function () {
+                if (!$(this).hasClass("hiddenPic")) {
+                    $(this).addClass("hiddenPic");
+                }
+            });
+            if ($("#" + number).hasClass("hiddenPic")) {              
+                $("#" + number).removeClass("hiddenPic");
+            }
+        }
+    </script>
 </div>
 }
 
- <a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="pt"})">
-    <img class="img-responsive  img-circle picmain left" src="~/Content/Images/pt.png" />
-</a>
-
+ 
 

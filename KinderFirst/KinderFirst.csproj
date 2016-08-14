@@ -161,6 +161,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminUploadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PicturesController.cs" />
@@ -168,15 +169,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201608131720559_tutocreated.cs" />
-    <Compile Include="Migrations\201608131720559_tutocreated.Designer.cs">
-      <DependentUpon>201608131720559_tutocreated.cs</DependentUpon>
+    <Compile Include="Migrations\201608132133591_first.cs" />
+    <Compile Include="Migrations\201608132133591_first.Designer.cs">
+      <DependentUpon>201608132133591_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MainUpView.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TutoPicture.cs" />
+    <Compile Include="Models\UploadAdminPhotoViews.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -223,8 +226,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Winners.cshtml" />
+    <Content Include="Views\Home\Rules.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -249,6 +252,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Pictures\SetSectionTutoPic.cshtml" />
     <Content Include="Views\Pictures\SetTutorialTutoPic.cshtml" />
+    <Content Include="Views\AdminUpload\UpAdminPhoto.cshtml" />
+    <Content Include="Views\AdminUpload\Index.cshtml" />
+    <Content Include="Views\Home\Rewards.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -261,8 +267,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201608131720559_tutocreated.resx">
-      <DependentUpon>201608131720559_tutocreated.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201608132133591_first.resx">
+      <DependentUpon>201608132133591_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

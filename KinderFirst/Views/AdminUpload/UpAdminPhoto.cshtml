@@ -1,0 +1,20 @@
+﻿@model KinderFirst.Models.UploadAdminPhotoViews
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @using (Html.BeginForm("UpAdminPhoto", "AdminUpload",FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            Number:
+            @Html.TextBoxFor(x=>x.Number)
+            TutorialId:
+            @Html.TextBoxFor(x=>x.TutoId)
+            @Html.LabelFor(x => x. File)
+            @Html.TextBoxFor(x => x.File, new { type = "file"})
+            @Html.ValidationMessageFor(x => x.File)
+        </div>
+        <button type="submit">Upload File</button>
+    }
+</div>

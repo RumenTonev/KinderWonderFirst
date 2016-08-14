@@ -13,18 +13,26 @@ namespace KinderFirst.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Winners()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Winners";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Rules()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Rules";
 
             return View();
         }
+
+        public ActionResult Rewards()
+        {
+            ViewBag.Message = "Rewards";
+
+            return View();
+        }
+
     }
 }
