@@ -1,0 +1,18 @@
+﻿@model IEnumerable<KinderFirst.Models.GalleryItem>
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<div class="row">
+    @{
+        foreach (var item in Model)
+        {
+            <div>
+               
+                    <img class="img-responsive  img-circle picmain left" src="~/Content/Images/ft.png" />
+                
+            </div>
+        }
+    }
+</div>
+

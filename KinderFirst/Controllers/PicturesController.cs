@@ -31,8 +31,27 @@ namespace KinderFirst.Controllers
                 return View(result);
             }
         }
+        [HttpGet]
+        public ActionResult Gallery()
+        {
+            using (ApplicationDbContext db = ApplicationDbContext.Create())
+            {
+                var result = db.GalleryItems.ToList();
+                return View(result);
+            }
+        }
 
+        [HttpPost]
 
+        public ActionResult CreateGalleryItem(GalleryItem item)
+        {
+            using (ApplicationDbContext db = ApplicationDbContext.Create())
+            {
+                var result = db.GalleryItems.Add(item);
+                db.SaveChanges();
+                return View();
+            }
+        }
    
     }
 }

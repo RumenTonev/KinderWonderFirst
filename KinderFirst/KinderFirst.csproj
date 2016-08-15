@@ -175,6 +175,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\GalleryItem.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MainUpView.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -255,6 +256,7 @@
     <Content Include="Views\AdminUpload\UpAdminPhoto.cshtml" />
     <Content Include="Views\AdminUpload\Index.cshtml" />
     <Content Include="Views\Home\Rewards.cshtml" />
+    <Content Include="Views\Pictures\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
