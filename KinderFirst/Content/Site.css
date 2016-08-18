@@ -34,6 +34,13 @@ textarea {
 .picmain{
     width:25%;
 }
+.inline{
+    display:inline;
+}
 .hiddenPic{
     display:none;
 }
+ .modal-content {
+         width: 600px !important;
+         margin: 30px auto !important;
+     }

@@ -26,6 +26,7 @@ namespace KinderFirst.Models
         }
         public DbSet<GalleryItem> GalleryItems { get; set; }
         public DbSet<TutoPicture> TutoPictures { get; set; }
+        public DbSet<IpItem> IpItems { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

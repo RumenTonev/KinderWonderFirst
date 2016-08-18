@@ -173,10 +173,20 @@
     <Compile Include="Migrations\201608132133591_first.Designer.cs">
       <DependentUpon>201608132133591_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608161837110_ku.cs" />
+    <Compile Include="Migrations\201608161837110_ku.Designer.cs">
+      <DependentUpon>201608161837110_ku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608162044329_IpItem.cs" />
+    <Compile Include="Migrations\201608162044329_IpItem.Designer.cs">
+      <DependentUpon>201608162044329_IpItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GalleryItem.cs" />
+    <Compile Include="Models\GalleryItemView.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IpItem.cs" />
     <Compile Include="Models\MainUpView.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TutoPicture.cs" />
@@ -208,6 +218,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -257,6 +269,7 @@
     <Content Include="Views\AdminUpload\Index.cshtml" />
     <Content Include="Views\Home\Rewards.cshtml" />
     <Content Include="Views\Pictures\Gallery.cshtml" />
+    <Content Include="Views\Pictures\_UploadForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -271,6 +284,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201608132133591_first.resx">
       <DependentUpon>201608132133591_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608161837110_ku.resx">
+      <DependentUpon>201608161837110_ku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608162044329_IpItem.resx">
+      <DependentUpon>201608162044329_IpItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

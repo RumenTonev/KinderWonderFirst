@@ -2,17 +2,54 @@
 @{
     ViewBag.Title = "Gallery";
 }
-
+@Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })
 <div class="row">
     @{
         foreach (var item in Model)
         {
-            <div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                
-                    <img class="img-responsive  img-circle picmain left" src="~/Content/Images/ft.png" />
-                
-            </div>
-        }
-    }
-</div>
+                    <img class="picmain" src="@Url.Content(item.PicLink)" />
+                    <div>
+                        <span id="@String.Format("timeDisplay{0}",item.Id)">@item.Likes</span>
 
+                        <span>
+                            @Ajax.ActionLink("Like", "Like", new { itemId = item.Id },
+    new AjaxOptions
+    {
+        UpdateTargetId = "timeDisplay" + item.Id,
+        LoadingElementId = "timeDisplayLoading",
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+        OnBegin = "OnAjaxRequestBegin",
+        OnFailure = "OnAjaxRequestFailure",
+        OnSuccess = "OnAjaxRequestSuccess",
+        OnComplete = "OnAjaxRequestComplete"
+
+    })
+                        </span>
+                    </div>
+                    <div id="timeDisplayLoading" style="display: none">Loading...</div>
+
+                </div>
+                }
+                }
+            </div>
+
+
+<script type="text/javascript">
+    function OnAjaxRequestBegin() {
+        console.log("This is the OnBegin Callback");
+    }
+    function OnAjaxRequestSuccess(data) {
+        console.log("This is the OnSuccessCallback: " + data);
+    }
+    function OnAjaxRequestFailure(request, error) {
+        debugger;
+        console.log("This is the OnFailure Callback:" +request.responseText);
+    }
+    function OnAjaxRequestComplete(request, status) {
+        console.log("This is the OnComplete Callback");
+        console.log(request);
+    }
+</script>
