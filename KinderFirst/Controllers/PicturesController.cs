@@ -1,6 +1,8 @@
 ﻿using KinderFirst.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -61,33 +63,53 @@ namespace KinderFirst.Controllers
 
         public ActionResult ProcessForm(GalleryItemView input)
         {
+            try
+            {
+                using (var img1 = Image.FromStream(input.File.InputStream))
+                {
+                    var picture= img1.RawFormat.Equals(ImageFormat.Jpeg);
+                }
+            }
+            catch {
+               return new JsonResult
+           {
+                Data = new { ErrorMessage = "Model is not valid-that is not picture file", Success = false },
+                ContentEncoding = System.Text.Encoding.UTF8,
+                JsonRequestBehavior = JsonRequestBehavior.DenyGet
+            };; 
             
-            byte[] productPicture = new byte[input.File.ContentLength];
-            input.File.InputStream.Read(productPicture, 0, input.File.ContentLength);
-
-            WebImage img = new WebImage(input.File.InputStream);
-
-            var fileName = input.File.FileName;
-            string extension = Path.GetExtension(fileName);
-            GalleryItem item=new GalleryItem()
-            {
-                 Mail=input.Mail,
-                  Owner=String.Format("{0} {1}",input.FirstName,input.LastName),                  
-            };
-
-            using (ApplicationDbContext db = ApplicationDbContext.Create())
-            {
-                db.GalleryItems.Add(item);
-                db.SaveChanges();
-                var fileNameNew = String.Format("{0}{1}", item.Id, extension);
-                var path = Path.Combine(Server.MapPath("~/Content/Images"), fileNameNew);
-                item.PicLink = String.Format("~/Content/Images/{0}", fileNameNew);
-                db.SaveChanges();
-                img.FileName = fileNameNew;
-                img.Save(path);
             }
 
-            return RedirectToAction("Gallery"); ;
+
+            if (this.ModelState.IsValid)
+            {
+                byte[] productPicture = new byte[input.File.ContentLength];
+                input.File.InputStream.Read(productPicture, 0, input.File.ContentLength);
+
+                WebImage img = new WebImage(input.File.InputStream);
+
+                var fileName = input.File.FileName;
+                string extension = Path.GetExtension(fileName);
+                GalleryItem item = new GalleryItem()
+                {
+                    Mail = input.Mail,
+                    Owner = String.Format("{0} {1}", input.FirstName, input.LastName),
+                };
+
+                using (ApplicationDbContext db = ApplicationDbContext.Create())
+                {
+                    db.GalleryItems.Add(item);
+                    db.SaveChanges();
+                    var fileNameNew = String.Format("{0}{1}", item.Id, extension);
+                    var path = Path.Combine(Server.MapPath("~/Content/Images"), fileNameNew);
+                    item.PicLink = String.Format("~/Content/Images/{0}", fileNameNew);
+                    db.SaveChanges();
+                    img.FileName = fileNameNew;
+                    img.Save(path);
+                }
+            }
+
+            return RedirectToAction("Gallery"); 
         }
         public ActionResult GetUploadForm()
         {

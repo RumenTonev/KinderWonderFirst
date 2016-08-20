@@ -1,28 +1,44 @@
 ﻿@model KinderFirst.Models.GalleryItemView
+
 <div class="modal-body">
-    @*<div class="alert alert-warning">
-        <span class="glyphicon glyphicon-warning-sign"></span>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat nisl a nibh tincidunt condimentum. Nullam in augue vitae augue dictum eleifend. Nunc porta fermentum metus, quis efficitur lectus scelerisque ac. Quisque egestas sit amet nunc in interdum. Etiam malesuada maximus nisi, id tempus metus. Vivamus at sapien ut metus aliquet sodales sed id magna. Integer in auctor ex. Phasellus tempor, est vel placerat dapibus, nulla dui tempor ligula, at pulvinar libero nunc gravida metus. Proin non feugiat felis. Proin ut ultrices ex. Morbi aliquet lacinia elit at bibendum. Nunc facilisis, neque a finibus dignissim, turpis felis vulputate diam, a tristique tellus nibh nec nulla. Suspendisse eget augue non turpis dignissim euismod eget eget odio. Donec sit amet nibh cursus, efficitur nibh in, sodales arcu. Pellentesque pulvinar consequat lacus ac porttitor.
-    </div>*@
 
     @using (Html.BeginForm("ProcessForm", "Pictures", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <div class="row">
-            @Html.LabelFor(x=>x.File)  
-            @Html.TextBoxFor(x => x.File, new { type = "file" })
-        </div>
-    <div class="row">
-        @Html.LabelFor(x => x.FirstName)
-        @Html.TextBoxFor(x => x.FirstName)
-    </div>
-    <div class="row">
-        @Html.LabelFor(x => x.LastName)
-        @Html.TextBoxFor(x => x.LastName)
-    </div>
-    <div class="row">
-        @Html.LabelFor(x => x.Mail)
-        @Html.TextBoxFor(x => x.Mail)
-    </div>
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Mail, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mail)
+                    @Html.ValidationMessageFor(model => model.Mail)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.File, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.File,new { type = "file",id="kur" })
+                    @Html.ValidationMessageFor(model => model.File)
+                </div>
+            </div>
+
+       </div>
+   
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -31,4 +47,36 @@
         </div>
     }
 </div>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script>
+        var alllowed = ["jpeg", "jpg", "png"]
+    document.getElementById("kur").addEventListener('change', function () {
+        debugger;
+        var kur= document.getElementById("kur");
+        var kur=  kur.files[0].type.match("image/*")
+        //if (/(image//*)/.test(str)) {
+        //    alert('true');
+        //}
 
+
+    });
+    function validateFileExtension(fileName) {
+        var exp = /^.*\.(jpg|jpeg|gif|JPG|png|PNG)$/;
+        return exp.test(fileName);
+    }
+    function testFile(file) {
+        var allowed = !fileIsBlacklisted(file);
+        var tooLarge = fileIsTooLarge(file);
+        var acceptable = fileIsAcceptable(file);
+        $scope.ngModel.$setValidity('blacklist', allowed);
+        $scope.ngModel.$setValidity('size', !tooLarge);
+        $scope.ngModel.$setValidity('acceptable', acceptable)
+        return allowed && acceptable && !tooLarge;
+    }
+
+    function fileIsBlacklisted(file) {
+        var matches = file.name.match(/\.([^.]+)$/);
+        return matches && blacklistedExtensions.exclude($scope.allowType).any(matches[1])
+    }
+</script>
