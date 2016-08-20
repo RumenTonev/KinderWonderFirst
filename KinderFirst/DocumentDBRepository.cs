@@ -72,7 +72,21 @@ namespace KinderFirst
                 }
             }
         }
+        public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
+        {
+            IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
+                UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId))
+                .Where(predicate)
+                .AsDocumentQuery();
 
+            List<T> results = new List<T>();
+            while (query.HasMoreResults)
+            {
+                results.AddRange(await query.ExecuteNextAsync<T>());
+            }
+
+            return results;
+        }
         //public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
         public static async Task<IEnumerable<T>> GetItemsAsync()
         {

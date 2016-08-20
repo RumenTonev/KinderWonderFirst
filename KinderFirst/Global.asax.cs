@@ -18,6 +18,7 @@ namespace KinderFirst
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DocumentDBRepository<GalleryItem>.Initialize();
+            DocumentDBRepository<IpItem>.Initialize();
         }
     }
 }

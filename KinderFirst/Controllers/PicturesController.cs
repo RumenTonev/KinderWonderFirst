@@ -16,8 +16,6 @@ namespace KinderFirst.Controllers
 {
     public class PicturesController : Controller
     {
-       // public ApplicationDbContext db = ApplicationDbContext.Create();
-        // GET: Pictures
         public ActionResult Index()
         {
             return View();
@@ -113,27 +111,23 @@ namespace KinderFirst.Controllers
         {
             return PartialView("_UploadForm");
         }
-        public ActionResult Like(string itemId)
+        public async Task<ActionResult> Like(string itemId)
         {
 
             string ipAddress = this.Request.UserHostAddress;
 
-            using (ApplicationDbContext db = ApplicationDbContext.Create())
-            {
-                var model = db.IpItems.FirstOrDefault(x => x.IP == ipAddress && x.IteamId == itemId);
+                var model = await DocumentDBRepository<IpItem>.GetItemsAsync(x=>x.IP==ipAddress&&x.IteamId==itemId);
 
-                if (model != null)
+                if (model.Count()>0)
                 {
                     this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     return Json(new { responseText = "You can not vote more than once for given entry" }, JsonRequestBehavior.AllowGet);
                 }
-                db.IpItems.Add(new IpItem() { IP = ipAddress, IteamId = itemId });
-                var item = db.GalleryItems.FirstOrDefault(x => x.Id.ToString() == itemId);
-                item.Likes++;
-                db.SaveChanges();
-                return this.Content(item.Likes.ToString());
-            }
-           
+                await DocumentDBRepository<IpItem>.CreateItemAsync(new IpItem() { IP = ipAddress, IteamId = itemId });
+                var galleryItem = await DocumentDBRepository<GalleryItem>.GetItemAsync(itemId); 
+                galleryItem.Likes++;
+                await DocumentDBRepository<GalleryItem>.UpdateItemAsync(itemId, galleryItem);
+                return this.Content(galleryItem.Likes.ToString()); 
         }
    
     }
