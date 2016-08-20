@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
@@ -38,30 +39,28 @@ namespace KinderFirst.Controllers
             }
         }
         [HttpGet]
-        public ActionResult Gallery()
+        public async Task<ActionResult> Gallery()
         {
-            using (ApplicationDbContext db = ApplicationDbContext.Create())
-            {
-                var result = db.GalleryItems.Take(3).ToList();
-                return View(result);
-            }
+            var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync();
+            return View(items);
+        }
+         
+        [HttpPost]
+        public async Task<ActionResult> CreateGalleryItem([Bind(Include = "Id,Owner,Mail,,PicLink,Likes")] GalleryItem item)
+        {
+
+                if (ModelState.IsValid)
+                {
+                    await DocumentDBRepository<GalleryItem>.CreateItemAsync(item);
+                    return RedirectToAction("Index");
+                }
+
+            return View();
         }
 
         [HttpPost]
 
-        public ActionResult CreateGalleryItem(GalleryItem item)
-        {
-            using (ApplicationDbContext db = ApplicationDbContext.Create())
-            {
-                var result = db.GalleryItems.Add(item);
-                db.SaveChanges();
-                return View();
-            }
-        }
-
-        [HttpPost]
-
-        public ActionResult ProcessForm(GalleryItemView input)
+        public async Task<ActionResult> ProcessForm(GalleryItemView input)
         {
             try
             {
@@ -96,18 +95,17 @@ namespace KinderFirst.Controllers
                     Owner = String.Format("{0} {1}", input.FirstName, input.LastName),
                 };
 
-                using (ApplicationDbContext db = ApplicationDbContext.Create())
-                {
-                    db.GalleryItems.Add(item);
-                    db.SaveChanges();
-                    var fileNameNew = String.Format("{0}{1}", item.Id, extension);
+             var result=   await DocumentDBRepository<GalleryItem>.CreateItemAsync(item);
+                
+                    var fileNameNew = String.Format("{0}{1}", result.Id, extension);
                     var path = Path.Combine(Server.MapPath("~/Content/Images"), fileNameNew);
                     item.PicLink = String.Format("~/Content/Images/{0}", fileNameNew);
-                    db.SaveChanges();
-                    img.FileName = fileNameNew;
+                item.Id = result.Id;
+                    await DocumentDBRepository<GalleryItem>.UpdateItemAsync(result.Id, item);
+                img.FileName = fileNameNew;
                     img.Save(path);
                 }
-            }
+            
 
             return RedirectToAction("Gallery"); 
         }
