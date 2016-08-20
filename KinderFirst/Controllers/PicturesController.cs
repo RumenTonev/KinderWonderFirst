@@ -37,9 +37,9 @@ namespace KinderFirst.Controllers
             }
         }
         [HttpGet]
-        public async Task<ActionResult> Gallery()
+        public async Task<ActionResult> Gallery(int take)
         {
-            var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync();
+            var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync(take);
             return View(items);
         }
          

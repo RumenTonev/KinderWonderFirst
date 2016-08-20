@@ -88,11 +88,24 @@ namespace KinderFirst
             return results;
         }
         //public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
-        public static async Task<IEnumerable<T>> GetItemsAsync()
+        public static async Task<IEnumerable<T>> GetItemsAsync(int take,int skip)
         {
             IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId))
-                //.Where(predicate)
+                .AsDocumentQuery();
+
+            List<T> results = new List<T>();
+            while (query.HasMoreResults)
+            {
+                results.AddRange(await query.ExecuteNextAsync<T>());
+            }
+
+            return results.Skip(skip).Take(take);
+        }
+        public static async Task<IEnumerable<T>> GetItemsAsync(int take)
+        {
+            IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
+                UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId)).Take(take)
                 .AsDocumentQuery();
 
             List<T> results = new List<T>();
@@ -103,7 +116,6 @@ namespace KinderFirst
 
             return results;
         }
-
         private static async Task CreateCollectionIfNotExistsAsync()
         {
             try
