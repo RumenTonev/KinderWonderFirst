@@ -25,7 +25,7 @@
                             @Ajax.ActionLink("Like", "Like", new { itemId = item.Id },
     new AjaxOptions
     {
-        //UpdateTargetId = "timeDisplay" + item.Id,
+        UpdateTargetId = "timeDisplay" + item.Id,
         LoadingElementId = "timeDisplayLoading",
         HttpMethod = "GET",
         InsertionMode = InsertionMode.Replace,
