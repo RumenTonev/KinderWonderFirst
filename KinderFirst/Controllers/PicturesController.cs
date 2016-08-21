@@ -75,7 +75,15 @@ namespace KinderFirst.Controllers
 
             if (ModelState.IsValid)
             {
+                var mainItem = await DocumentDBRepository<GalleryItem>.GetItemAsync(id);
                var result= await DocumentDBRepository<GalleryItem>.DeleteItemAsync(id);
+               
+                
+                var path =Request.MapPath(mainItem.PicLink);
+                if ((System.IO.File.Exists(path)))
+                {
+                    System.IO.File.Delete(path);
+                }
                 return RedirectToAction("Gallery");
             }
 
