@@ -23,7 +23,16 @@ namespace KinderFirst
             CreateDatabaseIfNotExistsAsync().Wait();
             CreateCollectionIfNotExistsAsync().Wait();
         }
-
+        public static async Task<bool> DeleteItemAsync(string id)
+        {
+            Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+            var result = await client.DeleteDocumentAsync(document.SelfLink);
+            if (result.StatusCode.ToString().StartsWith("2"))
+                {
+                return true;
+                }
+            return false;
+        }
         public static async Task<Document> CreateItemAsync(T item)
         {
             return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
@@ -38,7 +47,7 @@ namespace KinderFirst
         {
             try
             {
-                Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));
+                Document document = await client.ReadDocumentAsync(UriFactory.CreateDocumentUri(DatabaseId, CollectionId, id));                
                 return (T)(dynamic)document;
             }
             catch (DocumentClientException e)

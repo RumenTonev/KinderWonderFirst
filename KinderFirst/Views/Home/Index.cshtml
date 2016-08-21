@@ -1,41 +1,15 @@
-﻿<div class="row">
+﻿<div class="index-body">
+    <a class="btn-natural-toys grow" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="naturalmaterial"})"></a>
+    <a class="btn-paper-toys grow" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="paper"})"></a>
+    <a class="btn-printables-toys grow" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="printables"})"></a>
+    <a class="btn-cardboard-toys grow" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})"></a>
+    <a class="btn-rewards grow" href="@Url.Action("Rewards", "Home", new  {id="rewards"})"></a>
 
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <div class="row">
-            <div>
-                <a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="pt"})">
-                    <img class="img-responsive  img-circle left" src="~/Content/Images/pt.png" />
-                </a>
-            </div>
-            <div>
-                <a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="ft"})">
-                    <img class="img-responsive  img-circle left" src="~/Content/Images/ft.png" />
-                </a>
-            </div>
-        </div>
-        <div class="row">
-            <div>
-                <a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="mt"})">
-                    <img class="img-responsive  img-circle left" src="~/Content/Images/mt.png" />
-                </a>
-            </div>
-            <div>
-                <a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="pr"})">
-                    <img class="img-responsive  img-circle left" src="~/Content/Images/pr.png" />
-                </a>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <p class="kur">
-                    Kureeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeecccc
-                </p>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-        <img class="bigpic" src="~/Content/Images/up.jpg" />
+    <div class="sub-menu">
+        @Html.ActionLink("Начало", "Index", "Home")
+        @Html.ActionLink("Галерия", "Gallery", "Home")
+        @Html.ActionLink("Награди", "Rewards", "Home")
+        @Html.ActionLink("Печеливши", "Winners", "Home")
+        @Html.ActionLink("Правила", "Rules", "Home")
     </div>
 </div>

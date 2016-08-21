@@ -1,46 +1,241 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 110px;
+    height: 1035px;
+    width: 1350px;
+    margin: auto;
 }
 
-/* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    max-width: 1300px;
+    height: 1035px;
+    padding: 0;
+    width: 1350px;
+    position: relative;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
+.navbar {
+    height: 75px;
+    background-color: #e53d18;
+    box-shadow: 0 10px 6px -6px #777;
+}
+
+.nav-btn-img {
+    position: absolute;
+    bottom:10px;
+}
+
+.navbar-btn-custom {
+    height: 100px;
+    width: 170px;
+    background-color: #ff0000;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 15px;
+    border: 2px solid #ca3434;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .navbar-btn-custom a {
+        height: 100%;
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .navbar-btn-custom:hover {
+        height: 120px;
+        transition: height ease 0.5s;
+    }
+
+.index-body {
+    position: relative;
+    height: 1035px;
+    width: 1296px;
+    margin: auto;
+    background: no-repeat center center;
+    background-size: 100%;
+    background-image: url(/Content/Images/background.jpg);
+    box-shadow: 10px 10px 5px grey;
+}
+
+.tutorials-body {
+    position: relative;
+    height: 1035px;
+    width: 1296px;
+    margin: auto;
+}
+
+.sub-menu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+    .sub-menu a {
+        font-size: 20px;
+        margin-left: 5px;
+        margin-right: 5px;
+        color: white;
+        text-decoration: underline;
+    }
+
+.hiddenPic {
+    display: none;
+}
+
+.btn-natural-toys {
+    display: block;
+    margin: 0 auto;
+    width: 170px;
+    height: 160px;
+    background: no-repeat;
+    background-size: 100%;
+    background-image: url(/Content/Images/naturalmaterial.png);
+    position: absolute;
+    top: 38%;
+    left: 4%;
+}
+
+.btn-paper-toys {
+    display: block;
+    margin: 0 auto;
+    width: 170px;
+    height: 160px;
+    background: no-repeat;
+    background-size: 100%;
+    background-image: url(/Content/Images/paper.png);
+    position: absolute;
+    top: 21%;
+    left: 4%;
+}
+
+.btn-printables-toys {
+    display: block;
+    margin: 0 auto;
+    width: 170px;
+    height: 160px;
+    background: no-repeat;
+    background-size: 100%;
+    background-image: url(/Content/Images/printables.png);
+    position: absolute;
+    top: 38%;
+    left: 18%;
+}
+
+.btn-cardboard-toys {
+    display: block;
+    margin: 0 auto;
+    width: 170px;
+    height: 160px;
+    background: no-repeat;
+    background-size: 100%;
+    background-image: url(/Content/Images/cardboard.png);
+    position: absolute;
+    top: 21%;
+    left: 18%;
+}
+
+.btn-rewards {
+    display: block;
+    margin: 0 auto;
+    width: 276px;
+    height: 376px;
+    background: no-repeat;
+    background-size: 100%;
+    background-image: url(/Content/Images/rewards.png);
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+
+.tutorial-selection {
+    height: 323px;
+    width: 323px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+    margin-left: 10px;
+}
+
+.tutorial-details-container {
+    height: 100%;
+    width: 970px;
+    padding-bottom: 10px;
+    overflow: auto;
+}
+
+.tutorial-details {
+    padding-left: 40px;
+}
+
+/*
+    Effects
 */
-.dl-horizontal dt {
-    white-space: normal;
+
+.grow {
+    transition: all .2s ease-in-out;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+    .grow:hover {
+        transform: scale(1.12);
+    }
+
+/*
+    Scrollbar
+*/
+.tutorial-details-container::-webkit-scrollbar {
+    width: 15px;
 }
 
-.bigpic{
-        float: left;
-    width: 60%;
-    height: auto;
+.tutorial-details-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    visibility: hidden;
 }
-.left{
-    float:right;
+
+.tutorial-details-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    visibility: hidden;
 }
-.picmain{
-    width:85%;
+
+.tutorial-details-container:hover::-webkit-scrollbar-track {
+    visibility: visible;
 }
-.inline{
-    display:inline;
+
+.tutorial-details-container:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
 }
-.hiddenPic{
-    display:none;
+
+/*
+     Grow Shadow 
+
+*/
+.hvr-grow-shadow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
 }
- .modal-content {
+
+    .hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+        box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.05);
+    }
+
+   .modal-content {
          width: 600px !important;
          margin: 30px auto !important;
      }
+   .picmain{
+    width:85%;
+}

@@ -21,12 +21,32 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("НАЧАЛО", "Index", "Home")</li>
-                    <li>@Html.ActionLink("ГАЛЕРИЯ", "Gallery", "Pictures",new {take=3,skip=1},null)</li>
-                    <li>@Html.ActionLink("НАГРАДИ", "Rewards", "Home")</li>
-                    <li>@Html.ActionLink("ПЕЧЕЛИВШИ", "Winners", "Home")</li>
-                    <li>@Html.ActionLink("ПРАВИЛА", "Rules", "Home")</li>
-                    <li>@Html.ActionLink("АДМИН", "Index", "AdminUpload")</li>
+                    <li class="navbar-btn-custom">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img class="nav-btn-img" src="~/Content/Images/nav-index.png" />
+                        </a>
+                    </li>
+                    <li class="navbar-btn-custom">
+                        <a href="@Url.Action("Gallery", "Pictures")">
+                            <img class="nav-btn-img" src="~/Content/Images/nav-gallery.png" />
+                        </a>
+                    </li>
+                    <li class="navbar-btn-custom">
+                        <a href="@Url.Action("Rewards", "Home")">
+                            <img class="nav-btn-img" src="~/Content/Images/nav-rewards.png" />
+                        </a>
+                    </li>
+                    <li class="navbar-btn-custom">
+                        <a href="@Url.Action("Winners", "Home")">
+                            <img class="nav-btn-img" src="~/Content/Images/nav-winners.png" />
+                        </a>
+                    </li>
+                    <li class="navbar-btn-custom">
+                        <a href="@Url.Action("Rules", "Home")">
+                            <img class="nav-btn-img" src="~/Content/Images/nav-rules.png" />
+                        </a>
+                    </li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("АДМИН", "Index", "AdminUpload")</li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>

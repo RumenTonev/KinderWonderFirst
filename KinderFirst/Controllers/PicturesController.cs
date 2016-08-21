@@ -69,6 +69,18 @@ namespace KinderFirst.Controllers
 
             return View();
         }
+        [HttpDelete]
+        public async Task<ActionResult> DeleteGalleryItem( string id)
+        {
+
+            if (ModelState.IsValid)
+            {
+               var result= await DocumentDBRepository<GalleryItem>.DeleteItemAsync(id);
+                return RedirectToAction("Gallery");
+            }
+
+            return View();
+        }
 
         [HttpPost]
 

@@ -214,17 +214,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Images\ft.png" />
-    <Content Include="Content\Images\ft1.jpg" />
-    <Content Include="Content\Images\ft2.jpg" />
-    <Content Include="Content\Images\ft3.jpg" />
-    <Content Include="Content\Images\pr.png" />
-    <Content Include="Content\Images\mt.png" />
-    <Content Include="Content\Images\pt.png" />
-    <Content Include="Content\Images\pt1.jpg" />
-    <Content Include="Content\Images\pt2.jpg" />
-    <Content Include="Content\Images\pt3.jpg" />
-    <Content Include="Content\Images\up.jpg" />
+    <Content Include="Content\Images\noimage.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
