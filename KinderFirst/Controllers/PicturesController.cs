@@ -1,4 +1,5 @@
 ﻿using KinderFirst.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -36,13 +37,26 @@ namespace KinderFirst.Controllers
                 return View(result);
             }
         }
+        //[HttpGet]
+        //public async Task<ActionResult> Gallery(int take)
+        //{
+        //    var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync(take);
+        //    return View(items);
+        //}
+
         [HttpGet]
-        public async Task<ActionResult> Gallery(int take)
+        public async Task<ActionResult> Gallery(int? page,int? size)
         {
-            var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync(take);
-            return View(items);
+            int pageSize = (size ?? 3);
+            int pageNumber = (page ?? 1);
+            var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync();
+           // PagedList<GalleryItem> model = new PagedList<GalleryItem>(items,page,pageSize);
+            
+           
+            return View(items.ToPagedList(pageNumber, pageSize));
+          //  return View(model);
         }
-         
+
         [HttpPost]
         public async Task<ActionResult> CreateGalleryItem([Bind(Include = "Id,Owner,Mail,,PicLink,Likes")] GalleryItem item)
         {

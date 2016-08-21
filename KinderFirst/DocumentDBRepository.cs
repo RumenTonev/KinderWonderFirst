@@ -88,7 +88,7 @@ namespace KinderFirst
             return results;
         }
         //public static async Task<IEnumerable<T>> GetItemsAsync(Expression<Func<T, bool>> predicate)
-        public static async Task<IEnumerable<T>> GetItemsAsync(int take,int skip)
+        public static async Task<IEnumerable<T>> GetItemsAsync()
         {
             IDocumentQuery<T> query = client.CreateDocumentQuery<T>(
                 UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId))
@@ -100,7 +100,7 @@ namespace KinderFirst
                 results.AddRange(await query.ExecuteNextAsync<T>());
             }
 
-            return results.Skip(skip).Take(take);
+            return results;
         }
         public static async Task<IEnumerable<T>> GetItemsAsync(int take)
         {

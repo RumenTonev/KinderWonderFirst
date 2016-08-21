@@ -1,9 +1,13 @@
-﻿@model IEnumerable<KinderFirst.Models.GalleryItem>
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList<KinderFirst.Models.GalleryItem>
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 @{
     ViewBag.Title = "Gallery";
 }
 @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })
 <div class="row">
+ 
     @{
         foreach (var item in Model)
         {
@@ -39,7 +43,8 @@
                 }
                 }
             </div>
-
+@Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
 <script type="text/javascript">
     function OnAjaxRequestBegin() {
