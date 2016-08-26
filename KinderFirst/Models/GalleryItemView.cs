@@ -18,7 +18,12 @@ namespace KinderFirst.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [MinLength(3), MaxLength(20)]
         public string Mail { get; set; }
-        [Required(ErrorMessage = "The File is required")]
-        public HttpPostedFileBase File { get; set; }
+        public string PicWidth { get; set; }
+        public string PicHeight { get; set; }
+        public string PicTop { get; set; }
+        public string PicLeft { get; set; }
+        public string PicName { get; set; }
+        public string PicRight { get; set; }
+        public string PicBottom { get; set; }
     }
 }
