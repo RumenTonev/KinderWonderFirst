@@ -32,6 +32,13 @@
                 </div>
             </div>
             <div class="form-group">
+                @Html.LabelFor(model => model.Phone, new { @class = "control-label col-md-2"})
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { placeholder = "Only digits min 4 max 10" } })                  
+                    @Html.ValidationMessageFor(model => model.Phone)
+                </div>
+            </div>
+            <div class="form-group">
                 @Html.HiddenFor(model => model.PicHeight, new { id = "picHeight" })
                @Html.HiddenFor(model => model.PicWidth, new { id = "picWidth" })
                 @Html.HiddenFor(model => model.PicTop, new { id = "picTop" })
