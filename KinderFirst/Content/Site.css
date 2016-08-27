@@ -94,38 +94,35 @@
 }
 
 .index-body-btns {
-    padding: 5px;
     position: absolute;
-    column-count: 2;
     top: 20%;
-    left: 2%;
+    left: 6%;
 }
+
+    .index-body-btns tr td {
+        text-align: center;
+    }
 
 .btn-toys {
     position: relative;
     margin: 10px;
 }
 
-.btn-rewards {
-    position: absolute;
-    bottom: 5%;
-    left: 5%;
-    margin: 10px;
-    transition: all .2s ease-in-out;
-}
-
-    .btn-rewards:hover {
-        transform: scale(1.1);
-    }
-
 /*
     Effects
 */
-
-.grow {
+.grow-small {
     transition: all .2s ease-in-out;
 }
 
-    .grow:hover {
+    .grow-small:hover {
+        transform: scale(1.15);
+    }
+
+.grow-big {
+    transition: all .2s ease-in-out;
+}
+
+    .grow-big:hover {
         transform: scale(1.2);
     }
