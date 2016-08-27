@@ -46,7 +46,9 @@
                             <img class="nav-btn-img" src="~/Content/Images/nav-rules.png" />
                         </a>
                     </li>
-                    <li class="navbar-btn-custom">@Html.ActionLink("АДМИН", "Index", "AdminUpload")</li>
+                    <li class="navbar-btn-custom">
+                        <a href="@Url.Action("Index", "AdminUpload")">Admin</a>
+                    </li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>
@@ -55,6 +57,9 @@
     <div class="container body-content">
         @RenderBody()
     </div>
+        <footer class="wave-div">
+            <p class="footer-text">&copy; @DateTime.Now.Year - Kinder Milch-Schnitte</p>
+        </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

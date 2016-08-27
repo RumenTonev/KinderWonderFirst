@@ -247,6 +247,7 @@
     <Content Include="Content\Images\printables2.jpg" />
     <Content Include="Content\Images\printables3.jpg" />
     <Content Include="Content\Images\rewards.png" />
+    <Content Include="Content\Images\wave.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
