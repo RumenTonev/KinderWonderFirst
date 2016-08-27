@@ -2,30 +2,45 @@
 
 @{
     <div class="tutorials-body">
-        <div class="col-sm-3">
-            <a href="#" onclick="ChangePic(1)">
-                <img class="tutorial-selection hvr-grow-shadow" src="@Url.Content(String.Format("~/Content/Images/{0}1.jpg",Model.Id))" />
-            </a>
-            <a href="#" onclick="ChangePic(2)">
-                <img class="tutorial-selection hvr-grow-shadow" src="@Url.Content(String.Format("~/Content/Images/{0}2.jpg",Model.Id))" />
-            </a>
-            <a href="#" onclick="ChangePic(3)">
-                <img class="tutorial-selection hvr-grow-shadow" src="@Url.Content(String.Format("~/Content/Images/{0}3.jpg",Model.Id))" />
-            </a>
-        </div>
-        <div class="col-sm-9 tutorial-details-container">
-            <div class="tutorial-details">
-                <a href="#" id="1" class="mine">
-                    <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}1Big.jpg",Model.Id))" />
-                </a>
-                <a href="#" id="2" class="mine hiddenPic">
-                    <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}2Big.jpg",Model.Id))" />
-                </a>
-                <a href="#" id="3" class="mine hiddenPic">
-                    <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}3Big.jpg",Model.Id))" />
-                </a>
-            </div>
-        </div>
+
+        <table>
+            <tr>
+                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <a href="#" onclick="ChangePic(1)">
+                        <img class="img-responsive tutorial-selection hvr-grow-shadow" src="@Url.Content(String.Format("~/Content/Images/{0}1.jpg", Model.Id))" />
+                    </a>
+                </td>
+                <td rowspan="3" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                    <div class="tutorial-details-container">
+                        <a href="#" id="1" class="mine">
+                            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}1Big.jpg", Model.Id))" />
+                        </a>
+                        <a href="#" id="2" class="mine hiddenPic">
+                            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}2Big.jpg", Model.Id))" />
+                        </a>
+                        <a href="#" id="3" class="mine hiddenPic">
+                            <img class="img-responsive" src="@Url.Content(String.Format("~/Content/Images/{0}3Big.jpg", Model.Id))" />
+                        </a>
+                    </div>
+
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <a href="#" onclick="ChangePic(2)">
+                        <img class="img-responsive tutorial-selection hvr-grow-shadow" src="@Url.Content(String.Format("~/Content/Images/{0}2.jpg", Model.Id))" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                    <a href="#" onclick="ChangePic(3)">
+                        <img class="img-responsive tutorial-selection hvr-grow-shadow" src="@Url.Content(String.Format("~/Content/Images/{0}3.jpg", Model.Id))" />
+                    </a>
+                </td>
+            </tr>
+        </table>
+
         <script>
             function ChangePic(number) {
                 $(".mine").each(function () {
@@ -38,9 +53,6 @@
                 }
             }
         </script>
+
     </div>
 }
-
-
- 
-

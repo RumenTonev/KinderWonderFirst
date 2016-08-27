@@ -222,6 +222,8 @@
     <Content Include="Content\Images\cardboard2Big.jpg" />
     <Content Include="Content\Images\cardboard3.jpg" />
     <Content Include="Content\Images\cardboard3Big.jpg" />
+    <Content Include="Content\Images\paper3.jpg" />
+    <Content Include="Content\Images\paper2.jpg" />
     <Content Include="Content\Jcrop.gif" />
     <Content Include="Content\Images\naturalmaterial.png" />
     <Content Include="Content\Images\naturalmaterial1.jpg" />
@@ -239,9 +241,7 @@
     <Content Include="Content\Images\paper.png" />
     <Content Include="Content\Images\paper1.jpg" />
     <Content Include="Content\Images\paper1Big.jpg" />
-    <Content Include="Content\Images\paper2.jpg" />
     <Content Include="Content\Images\paper2Big.jpg" />
-    <Content Include="Content\Images\paper3.jpg" />
     <Content Include="Content\Images\printables.png" />
     <Content Include="Content\Images\printables1.jpg" />
     <Content Include="Content\Images\printables1Big.jpg" />
