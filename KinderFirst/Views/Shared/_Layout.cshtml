@@ -54,14 +54,21 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container body-content">
         @RenderBody()
     </div>
-        <footer class="wave-div">
-            <p class="footer-text">&copy; @DateTime.Now.Year - Kinder Milch-Schnitte</p>
-        </footer>
 
-   
+    <footer class="wave-div">
+        <p class="footer-text">&copy; @DateTime.Now.Year - Kinder Milch-Schnitte</p>
+        <div class="sub-menu col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            @Html.ActionLink("Начало", "Index", "Home")
+            @Html.ActionLink("Галерия", "Gallery", "Home")
+            @Html.ActionLink("Награди", "Rewards", "Home")
+            @Html.ActionLink("Печеливши", "Winners", "Home")
+            @Html.ActionLink("Правила", "Rules", "Home")
+        </div>
+    </footer>
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
