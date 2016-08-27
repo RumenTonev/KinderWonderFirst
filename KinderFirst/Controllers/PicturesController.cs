@@ -17,6 +17,13 @@ namespace KinderFirst.Controllers
 {
     public class PicturesController : Controller
     {
+        private const int AvatarScreenWidth = 400;  // ToDo - Change the value of the width of the image on the screen
+
+        private const string TempFolder = "/Temp";
+        private const string MapTempFolder = "~" + TempFolder;
+
+        private readonly string[] _imageFileExtensions = { ".jpg", ".png", ".gif", ".jpeg" };
+
         public ActionResult Index()
         {
             return View();
@@ -37,12 +44,6 @@ namespace KinderFirst.Controllers
                 return View(result);
             }
         }
-        //[HttpGet]
-        //public async Task<ActionResult> Gallery(int take)
-        //{
-        //    var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync(take);
-        //    return View(items);
-        //}
 
         [HttpGet]
         public async Task<ActionResult> Gallery(int? page,int? size)
@@ -94,53 +95,118 @@ namespace KinderFirst.Controllers
 
         public async Task<ActionResult> ProcessForm(GalleryItemView input)
         {
-            try
+            var top = Convert.ToInt32(input.PicTop.Replace("-", "").Replace("px", ""));
+            var left = Convert.ToInt32(input.PicLeft.Replace("-", "").Replace("px", ""));
+            var height = Convert.ToInt32(input.PicHeight.Replace("-", "").Replace("px", ""));
+            var width = Convert.ToInt32(input.PicWidth.Replace("-", "").Replace("px", ""));
+            var bottom= Convert.ToInt32(input.PicBottom.Replace("-", "").Replace("px", ""));
+            var right = Convert.ToInt32(input.PicRight.Replace("-", "").Replace("px", ""));
+            // Get file from temporary folder
+            var fn = Path.Combine(Server.MapPath(MapTempFolder), Path.GetFileName(input.PicName));
+            string extension = Path.GetExtension(fn);
+            // ...get image and resize it, ...
+            var img = new WebImage(fn);
+            //img.Resize(width, height);
+            // ... crop the part the user selected, ...
+            img.Crop(top, left, img.Height - top - height, img.Width - left - width);
+            //img.Crop(top, left,bottom,right);
+
+            // ... delete the temporary file,...
+            System.IO.File.Delete(fn);
+            // ... and save the new one.
+            GalleryItem item = new GalleryItem()
             {
-                using (var img1 = Image.FromStream(input.File.InputStream))
-                {
-                    var picture= img1.RawFormat.Equals(ImageFormat.Jpeg);
-                }
-            }
-            catch {
-               return new JsonResult
-           {
-                Data = new { ErrorMessage = "Model is not valid-that is not picture file", Success = false },
-                ContentEncoding = System.Text.Encoding.UTF8,
-                JsonRequestBehavior = JsonRequestBehavior.DenyGet
-            };; 
-            
-            }
+                Mail = input.Mail,
+                Owner = String.Format("{0} {1}", input.FirstName, input.LastName),
+            };
 
-
-            if (this.ModelState.IsValid)
-            {
-                byte[] productPicture = new byte[input.File.ContentLength];
-                input.File.InputStream.Read(productPicture, 0, input.File.ContentLength);
-
-                WebImage img = new WebImage(input.File.InputStream);
-
-                var fileName = input.File.FileName;
-                string extension = Path.GetExtension(fileName);
-                GalleryItem item = new GalleryItem()
-                {
-                    Mail = input.Mail,
-                    Owner = String.Format("{0} {1}", input.FirstName, input.LastName),
-                };
-
-             var result=   await DocumentDBRepository<GalleryItem>.CreateItemAsync(item);
-                
-                    var fileNameNew = String.Format("{0}{1}", result.Id, extension);
-                    var path = Path.Combine(Server.MapPath("~/Content/Images"), fileNameNew);
-                    item.PicLink = String.Format("~/Content/Images/{0}", fileNameNew);
-                item.Id = result.Id;
-                    await DocumentDBRepository<GalleryItem>.UpdateItemAsync(result.Id, item);
-                img.FileName = fileNameNew;
-                    img.Save(path);
-                }
-            
+            var result = await DocumentDBRepository<GalleryItem>.CreateItemAsync(item);
+            var fileNameNew = String.Format("{0}{1}", result.Id, extension);
+            var path = Path.Combine(Server.MapPath("~/Content/Images"), fileNameNew);
+            item.PicLink = String.Format("~/Content/Images/{0}", fileNameNew);
+            item.Id = result.Id;
+            await DocumentDBRepository<GalleryItem>.UpdateItemAsync(result.Id, item);
+            img.FileName = fileNameNew;
+            img.Save(path);
 
             return RedirectToAction("Gallery"); 
         }
+        [HttpPost]
+        public ActionResult Fun(IEnumerable<HttpPostedFileBase> files)
+        {
+            if (files == null || !files.Any()) return Json(new { success = false, errorMessage = "No file uploaded." });
+            var file = files.FirstOrDefault();  // get ONE only
+            if (file == null || !IsImage(file)) return Json(new { success = false, errorMessage = "File is of wrong format." });
+            if (file.ContentLength <= 0) return Json(new { success = false, errorMessage = "File cannot be zero length." });
+            var webPath = GetTempSavedFilePath(file);
+            return Json(new { success = true, fileName = webPath }); // success
+        }
+
+        private string GetTempSavedFilePath(HttpPostedFileBase file)
+        {
+            // Define destination
+            var serverPath = HttpContext.Server.MapPath(TempFolder);
+            if (Directory.Exists(serverPath) == false)
+            {
+                Directory.CreateDirectory(serverPath);
+            }
+
+            // Generate unique file name
+            var fileName = Path.GetFileName(file.FileName);
+            fileName = SaveTemporaryAvatarFileImage(file, serverPath, fileName);
+
+            // Clean up old files after every save
+            CleanUpTempFolder(1);
+            return Path.Combine(TempFolder, fileName);
+        }
+
+        private void CleanUpTempFolder(int hoursOld)
+        {
+            try
+            {
+                var currentUtcNow = DateTime.UtcNow;
+                var serverPath = HttpContext.Server.MapPath("/Temp");
+                if (!Directory.Exists(serverPath)) return;
+                var fileEntries = Directory.GetFiles(serverPath);
+                foreach (var fileEntry in fileEntries)
+                {
+                    var fileCreationTime = System.IO.File.GetCreationTimeUtc(fileEntry);
+                    var res = currentUtcNow - fileCreationTime;
+                    if (res.TotalHours > hoursOld)
+                    {
+                        System.IO.File.Delete(fileEntry);
+                    }
+                }
+            }
+            catch
+            {
+                // Deliberately empty.
+            }
+        }
+
+        private static string SaveTemporaryAvatarFileImage(HttpPostedFileBase file, string serverPath, string fileName)
+        {
+            var img = new WebImage(file.InputStream);
+           var ratio = img.Height / (double)img.Width;
+           img.Resize(AvatarScreenWidth, (int)(AvatarScreenWidth * ratio));
+
+            var fullFileName = Path.Combine(serverPath, fileName);
+            if (System.IO.File.Exists(fullFileName))
+            {
+                System.IO.File.Delete(fullFileName);
+            }
+
+            img.Save(fullFileName);
+            return Path.GetFileName(img.FileName);
+        }
+
+        private bool IsImage(HttpPostedFileBase file)
+        {
+            if (file == null) return false;
+            return file.ContentType.Contains("image") ||
+                _imageFileExtensions.Any(item => file.FileName.EndsWith(item, StringComparison.OrdinalIgnoreCase));
+        }
+
         public ActionResult GetUploadForm()
         {
             return PartialView("_UploadForm");

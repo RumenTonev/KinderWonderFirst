@@ -25,9 +25,19 @@ namespace KinderFirst
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryform").Include(
+                      "~/Scripts/jquery.form.js",
+                      "~/Scripts/jquery.Jcrop.js",
+                      "~/Scripts/site.avatar.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Content/jcrop").Include(
+                      "~/Content/jquery.Jcrop.css",
+                      "~/Content/site.avatar.css"));
+
         }
     }
 }
