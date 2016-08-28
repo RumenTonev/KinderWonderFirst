@@ -219,9 +219,7 @@
     <Content Include="Content\Images\cardboard1.jpg" />
     <Content Include="Content\Images\cardboard1Big.jpg" />
     <Content Include="Content\Images\cardboard2.jpg" />
-    <Content Include="Content\Images\cardboard2Big.jpg" />
     <Content Include="Content\Images\cardboard3.jpg" />
-    <Content Include="Content\Images\cardboard3Big.jpg" />
     <Content Include="Content\Images\paper3.jpg" />
     <Content Include="Content\Images\paper2.jpg" />
     <Content Include="Content\Images\Reward\01-Front.jpg" />
@@ -245,7 +243,6 @@
     <Content Include="Content\Images\naturalmaterial2.jpg" />
     <Content Include="Content\Images\naturalmaterial2Big.jpg" />
     <Content Include="Content\Images\naturalmaterial3.jpg" />
-    <Content Include="Content\Images\naturalmaterial3Big.jpg" />
     <Content Include="Content\Images\nav-gallery.png" />
     <Content Include="Content\Images\nav-index.png" />
     <Content Include="Content\Images\nav-rewards.png" />
@@ -255,10 +252,8 @@
     <Content Include="Content\Images\paper.png" />
     <Content Include="Content\Images\paper1.jpg" />
     <Content Include="Content\Images\paper1Big.jpg" />
-    <Content Include="Content\Images\paper2Big.jpg" />
     <Content Include="Content\Images\printables.png" />
     <Content Include="Content\Images\printables1.jpg" />
-    <Content Include="Content\Images\printables1Big.jpg" />
     <Content Include="Content\Images\printables2.jpg" />
     <Content Include="Content\Images\printables3.jpg" />
     <Content Include="Content\Images\rewards.png" />
