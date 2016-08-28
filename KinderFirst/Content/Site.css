@@ -4,11 +4,8 @@
 
 .navbar {
     position: fixed;
-    min-height: 50px;
     background-color: transparent;
     border: none;
-    /*background-color: #e53d18;
-    box-shadow: 0 10px 6px -6px #777;*/
 }
 
 .nav-btn-img {
@@ -40,7 +37,7 @@
     }
 
 .container {
-    max-width: 1600px;
+    max-width: 67vw;
 }
 
 .body-content {
@@ -109,15 +106,19 @@
 
 .tutorials-body {
     position: relative;
-    max-height: 1035px;
+    max-height: 83vh;
 }
 
 .tutorial-selection {
-    max-height: 1035px;
+    max-height: 83vh;
+    display: block;
+    height: auto;
+    width: auto;
+    margin-right: 25px;
 }
 
 .tutorial-details-container {
-    max-height: 1035px;
+    max-height: 83vh;
     overflow: auto;
 }
 
