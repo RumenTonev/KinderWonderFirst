@@ -18,6 +18,9 @@ namespace KinderFirst.Models
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [MinLength(3), MaxLength(20)]
         public string Mail { get; set; }
+        [Required(ErrorMessage = "The phone is required")]
+        [RegularExpression("^([0-9]){4,10}$", ErrorMessage = "Please enter valid phone no 4 to 10 lentgh only numbers.")]
+        public string Phone { get; set; }
         public string PicWidth { get; set; }
         public string PicHeight { get; set; }
         public string PicTop { get; set; }

@@ -51,11 +51,7 @@ namespace KinderFirst.Controllers
             int pageSize = (size ?? 3);
             int pageNumber = (page ?? 1);
             var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync();
-           // PagedList<GalleryItem> model = new PagedList<GalleryItem>(items,page,pageSize);
-            
-           
             return View(items.ToPagedList(pageNumber, pageSize));
-          //  return View(model);
         }
 
         [HttpPost]
