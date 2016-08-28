@@ -142,7 +142,7 @@
 
 .carousel-indicators li {
     border: 1pt solid black;
-    background-color: lightgray;
+    background-color: whitesmoke;
 }
 
 .carousel-indicators .active {
@@ -157,6 +157,23 @@
 .reward-body h2 {
     text-align: center;
 }
+
+.rewards-more-info {
+    margin:auto;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+    .rewards-more-info td {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .rewards-more-info tr:nth-child(even) {
+        background-color: whitesmoke;
+    }
 
 /*
     Effects
