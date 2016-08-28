@@ -121,6 +121,11 @@
     overflow: auto;
 }
 
+.tutorial-details {
+    position: relative;
+    margin: auto;
+}
+
 /*
     Effects
 */
