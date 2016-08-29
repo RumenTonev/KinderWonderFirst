@@ -220,6 +220,7 @@
     <Content Include="Content\Images\cardboard1Big.jpg" />
     <Content Include="Content\Images\cardboard2.jpg" />
     <Content Include="Content\Images\cardboard3.jpg" />
+    <Content Include="Content\Images\kinder-logo-heart.png" />
     <Content Include="Content\Images\paper3.jpg" />
     <Content Include="Content\Images\paper2.jpg" />
     <Content Include="Content\Images\Reward\01-Front.jpg" />
@@ -243,11 +244,6 @@
     <Content Include="Content\Images\naturalmaterial2.jpg" />
     <Content Include="Content\Images\naturalmaterial2Big.jpg" />
     <Content Include="Content\Images\naturalmaterial3.jpg" />
-    <Content Include="Content\Images\nav-gallery.png" />
-    <Content Include="Content\Images\nav-index.png" />
-    <Content Include="Content\Images\nav-rewards.png" />
-    <Content Include="Content\Images\nav-rules.png" />
-    <Content Include="Content\Images\nav-winners.png" />
     <Content Include="Content\Images\noimage.png" />
     <Content Include="Content\Images\paper.png" />
     <Content Include="Content\Images\paper1.jpg" />
@@ -268,6 +264,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\SucoDeLaranja.otf" />
+    <Content Include="fonts\ACMEBold.ttf" />
+    <Content Include="fonts\ACMENorm.TTF" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />

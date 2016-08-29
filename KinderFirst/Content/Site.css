@@ -1,21 +1,11 @@
 ﻿.navbar {
-    position: relative;
-}
-
-.navbar {
     position: fixed;
     background-color: transparent;
     border: none;
 }
 
-.nav-btn-img {
-    position: absolute;
-    bottom: 10px;
-}
-
 .navbar-btn-custom {
     height: 50px;
-    width: 170px;
     background-color: red;
     background-image: linear-gradient(red, tomato);
     margin-left: 3px;
@@ -27,6 +17,8 @@
 }
 
     .navbar-btn-custom a {
+        font-family: 'A.C.M.E';
+        font-size: 24px;
         height: 100%;
         width: 100%;
         border-radius: 15px;
@@ -39,6 +31,7 @@
 
 .container {
     max-width: 64vw;
+    min-width: 600px;
 }
 
 .body-content {
@@ -159,7 +152,7 @@
 }
 
 .rewards-more-info {
-    margin:auto;
+    margin: auto;
     margin-top: 10px;
     margin-bottom: 50px;
 }
@@ -174,6 +167,16 @@
     .rewards-more-info tr:nth-child(even) {
         background-color: whitesmoke;
     }
+
+.logo-heart {
+    position: fixed;
+    z-index: 100;
+    right: 20%;
+    height: 50px;
+    width: 75px;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
 
 /*
     Effects
