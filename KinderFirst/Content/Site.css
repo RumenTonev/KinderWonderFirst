@@ -6,12 +6,12 @@
 
 .navbar-btn-custom {
     height: 50px;
+    top: -10px;
     background-color: red;
     background-image: linear-gradient(red, tomato);
     margin-left: 3px;
     margin-right: 3px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 15px;
     border: 2px solid #ca3434;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -98,7 +98,7 @@
 
 .btn-rewards {
     position: relative;
-    margin: 6%;
+    margin: 7%;
 }
 
 .tutorials-body {
@@ -122,6 +122,27 @@
 .tutorial-details {
     position: relative;
     margin: auto;
+}
+
+.gallery-body {
+}
+
+.gallery-navigation {
+    position: fixed;
+    border: 1pt solid red;
+    z-index: 100;
+}
+
+.gallary-participate-btn {
+}
+
+.gallery-item {
+    padding: 10px;
+}
+
+.gallery-item-img {
+    display: inline-block;
+    width: 85%;
 }
 
 .reward-body {
@@ -253,8 +274,4 @@
 .modal-content {
     width: 70% !important;
     margin: 30px auto !important;
-}
-
-.picmain {
-    width: 85%;
 }

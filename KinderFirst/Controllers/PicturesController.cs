@@ -48,7 +48,7 @@ namespace KinderFirst.Controllers
         [HttpGet]
         public async Task<ActionResult> Gallery(int? page,int? size)
         {
-            int pageSize = (size ?? 3);
+            int pageSize = (size ?? 15);
             int pageNumber = (page ?? 1);
             var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync();
             return View(items.ToPagedList(pageNumber, pageSize));

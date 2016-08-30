@@ -5,19 +5,31 @@
 @{
     ViewBag.Title = "Gallery";
 }
-@Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })
-<div class="row">
- 
-    @{
-        foreach (var item in Model)
-        {
-            if (item.PicLink == null)
+
+<div class="gallery-body">
+    <div class="gallery-navigation">
+        @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success gallary-participate-btn" }) 
+        @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
+    </div>
+
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    <div class="row">
+
+        @{
+            foreach (var item in Model)
             {
+                if (item.PicLink == null)
+                {
+                    item.PicLink = "~/Content/Images/noimage.png";
+                }
+
+                //TODO Remove to get pics from DB (TESTING)
                 item.PicLink = "~/Content/Images/noimage.png";
-            }
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-               
-                    <img class="picmain" src="@Url.Content(item.PicLink)" />
+                // End Testing
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gallery-item">
+
+                    <img class="gallery-item-img box-shadow" src="@Url.Content(item.PicLink)" />
                     <div>
                         <span id="@String.Format("timeDisplay{0}",item.Id)">@item.Likes</span>
 
@@ -57,25 +69,28 @@
                     <div id="timeDisplayLoading" style="display: none">Loading...</div>
 
                 </div>
-                }
-                }
-            </div>
+            }
+        }
+    </div>
+</div>
+
+
 @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
 
-<script type="text/javascript">
-    function OnAjaxRequestBegin() {
-        console.log("This is the OnBegin Callback");
-    }
-    function OnAjaxRequestSuccess(data) {
-        console.log("This is the OnSuccessCallback: " + data);
-    }
-    function OnAjaxRequestFailure(request, error) {
-        debugger;
-        console.log("This is the OnFailure Callback:" +request.responseText);
-    }
-    function OnAjaxRequestComplete(request, status) {
-        console.log("This is the OnComplete Callback");
-        console.log(request);
-    }
-</script>
+    <script type="text/javascript">
+        function OnAjaxRequestBegin() {
+            console.log("This is the OnBegin Callback");
+        }
+        function OnAjaxRequestSuccess(data) {
+            console.log("This is the OnSuccessCallback: " + data);
+        }
+        function OnAjaxRequestFailure(request, error) {
+            debugger;
+            console.log("This is the OnFailure Callback:" + request.responseText);
+        }
+        function OnAjaxRequestComplete(request, status) {
+            console.log("This is the OnComplete Callback");
+            console.log(request);
+        }
+    </script>
