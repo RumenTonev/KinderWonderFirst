@@ -8,7 +8,7 @@
 
 <div class="gallery-body">
     <div class="gallery-navigation">
-        @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success gallary-participate-btn" }) 
+        @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success gallary-participate-btn" })
         @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
     </div>
 
@@ -29,7 +29,9 @@
 
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gallery-item">
 
-                    <img class="gallery-item-img box-shadow" src="@Url.Content(item.PicLink)" />
+                    <div class="gallery-img-container box-shadow">
+                        <img class="gallery-item-img" src="@Url.Content(item.PicLink)" />
+                    </div>
                     <div>
                         <span id="@String.Format("timeDisplay{0}",item.Id)">@item.Likes</span>
 

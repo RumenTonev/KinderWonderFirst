@@ -219,8 +219,9 @@
     <Content Include="Content\Images\cardboard1.jpg" />
     <Content Include="Content\Images\cardboard1Big.jpg" />
     <Content Include="Content\Images\cardboard2.jpg" />
+    <Content Include="Content\Images\cardboard2Big.jpg" />
     <Content Include="Content\Images\cardboard3.jpg" />
-    <Content Include="Content\Images\kinder-logo-heart.png" />
+    <Content Include="Content\Images\paper2Big.JPG" />
     <Content Include="Content\Images\paper3.jpg" />
     <Content Include="Content\Images\paper2.jpg" />
     <Content Include="Content\Images\Reward\01-Front.jpg" />

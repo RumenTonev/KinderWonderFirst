@@ -9,7 +9,6 @@
     @Scripts.Render("~/bundles/jquery")
 </head>
 <body>
-    <img class="logo-heart" src="~/Content/Images/kinder-logo-heart.png" />
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -22,12 +21,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="navbar-btn-custom">@Html.ActionLink("Начало", "Index", "Home", new { area = "" }, new { @style = "color:white;" })</li>
-                    <li class="navbar-btn-custom">@Html.ActionLink("Галерия", "Gallery", "Pictures", new { area = "" }, new { @style = "color:white;" })</li>
-                    <li class="navbar-btn-custom">@Html.ActionLink("Награди", "Rewards", "Home", new { area = "" }, new { @style = "color:white;" })</li>
-                    <li class="navbar-btn-custom">@Html.ActionLink("Печеливши", "Winners", "Home", new { area = "" }, new { @style = "color:white;" })</li>
-                    <li class="navbar-btn-custom">@Html.ActionLink("Правила", "Rules", "Home", new { area = "" }, new { @style = "color:white;" })</li>
-                    <li class="navbar-btn-custom">@Html.ActionLink("Admin", "Index", "AdminUpload", new { area = "" }, new { @style = "color:white;" })</li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("Начало", "Index", "Home")</li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("Галерия", "Gallery", "Pictures")</li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("Награди", "Rewards", "Home")</li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("Печеливши", "Winners", "Home")</li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("Правила", "Rules", "Home")</li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("Admin", "Index", "AdminUpload")</li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
             </div>
