@@ -74,23 +74,19 @@
     @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })
 </div>
 
-
-@Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-    <script type="text/javascript">
-        function OnAjaxRequestBegin() {
-            console.log("This is the OnBegin Callback");
-        }
-        function OnAjaxRequestSuccess(data) {
-            console.log("This is the OnSuccessCallback: " + data);
-        }
-        function OnAjaxRequestFailure(request, error) {
-            debugger;
-            console.log("This is the OnFailure Callback:" + request.responseText);
-        }
-        function OnAjaxRequestComplete(request, status) {
-            console.log("This is the OnComplete Callback");
-            console.log(request);
-        }
-    </script>
+<script type="text/javascript">
+    function OnAjaxRequestBegin() {
+        console.log("This is the OnBegin Callback");
+    }
+    function OnAjaxRequestSuccess(data) {
+        console.log("This is the OnSuccessCallback: " + data);
+    }
+    function OnAjaxRequestFailure(request, error) {
+        debugger;
+        console.log("This is the OnFailure Callback:" + request.responseText);
+    }
+    function OnAjaxRequestComplete(request, status) {
+        console.log("This is the OnComplete Callback");
+        console.log(request);
+    }
+</script>

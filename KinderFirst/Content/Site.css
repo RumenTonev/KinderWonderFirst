@@ -134,10 +134,11 @@
 }
 
 .gallery-body {
-    padding-top: 75px;
+    padding-top: 65px;
     text-align: right;
     padding-left: 10px;
     padding-right: 10px;
+    padding-bottom: 50px;
 }
 
 .gallery-navigation {
@@ -180,7 +181,7 @@
 .gallery-like-box {
     position: absolute;
     background-color: white;
-    bottom: 29px;
+    bottom: 30px;
     left: 40%;
     width: 20%;
     height: 11%;
