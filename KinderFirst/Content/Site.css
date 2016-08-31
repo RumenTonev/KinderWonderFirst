@@ -134,15 +134,21 @@
 }
 
 .gallery-body {
+    padding-top: 75px;
+    text-align: right;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .gallery-navigation {
     position: fixed;
-    border: 1pt solid red;
+    top: 50px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    text-align: right;
+    background-color: white;
     z-index: 100;
-}
-
-.gallary-participate-btn {
 }
 
 .gallery-item {
@@ -151,12 +157,11 @@
 
 .gallery-img-container {
     overflow: hidden;
-    border: 1pt solid black;
 }
 
 .gallery-item-img {
-    display: inline-block;
-    width: 85%;
+    width: 100%;
+    height: 100%;
     -webkit-transition: all 0.5s ease; /* Safari and Chrome */
     -moz-transition: all 0.5s ease; /* Firefox */
     -ms-transition: all 0.5s ease; /* IE 9 */
@@ -170,6 +175,25 @@
         -ms-transform: scale(1.25); /* IE 9 */
         -o-transform: scale(1.25); /* Opera */
         transform: scale(1.25);
+    }
+
+.gallery-like-box {
+    position: absolute;
+    background-color: white;
+    bottom: 29px;
+    left: 40%;
+    width: 20%;
+    height: 11%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+}
+
+    .gallery-like-box a {
+        display: inline-block;
+        font-size: 25pt;
+        width: 100%;
+        height: 100%;
     }
 
 .reward-body {
@@ -217,6 +241,12 @@
     .rewards-more-info tr:nth-child(even) {
         background-color: whitesmoke;
     }
+
+.rules-body {
+    margin: auto;
+    width: 65%;
+    text-align: justify;
+}
 
 /*
     Effects

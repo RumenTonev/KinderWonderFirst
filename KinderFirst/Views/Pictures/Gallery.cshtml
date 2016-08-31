@@ -7,12 +7,10 @@
 }
 
 <div class="gallery-body">
-    <div class="gallery-navigation">
-        @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success gallary-participate-btn" })
+    <div class="gallery-navigation container">
         @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
     </div>
 
-    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
     <div class="row">
 
         @{
@@ -31,25 +29,24 @@
 
                     <div class="gallery-img-container box-shadow">
                         <img class="gallery-item-img" src="@Url.Content(item.PicLink)" />
+                        <div class="gallery-like-box">
+                            @Ajax.ActionLink("Like", "Like", new { itemId = item.Id },
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "timeDisplay" + item.Id,
+                                    LoadingElementId = "timeDisplayLoading",
+                                    HttpMethod = "GET",
+                                    InsertionMode = InsertionMode.Replace,
+                                    OnBegin = "OnAjaxRequestBegin",
+                                    OnFailure = "OnAjaxRequestFailure",
+                                    OnSuccess = "OnAjaxRequestSuccess",
+                                    OnComplete = "OnAjaxRequestComplete"
+
+                                })
+                        </div>
                     </div>
                     <div>
                         <span id="@String.Format("timeDisplay{0}",item.Id)">@item.Likes</span>
-
-                        <span>
-                            @Ajax.ActionLink("Like", "Like", new { itemId = item.Id },
-    new AjaxOptions
-    {
-        UpdateTargetId = "timeDisplay" + item.Id,
-        LoadingElementId = "timeDisplayLoading",
-        HttpMethod = "GET",
-        InsertionMode = InsertionMode.Replace,
-        OnBegin = "OnAjaxRequestBegin",
-        OnFailure = "OnAjaxRequestFailure",
-        OnSuccess = "OnAjaxRequestSuccess",
-        OnComplete = "OnAjaxRequestComplete"
-
-    })
-                        </span>
 
                         <span>
                             @Ajax.ActionLink("Delete", "DeleteGalleryItem", new { id = item.Id },
@@ -74,6 +71,7 @@
             }
         }
     </div>
+    @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })
 </div>
 
 
