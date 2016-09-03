@@ -221,6 +221,7 @@
     <Content Include="Content\Images\cardboard2.jpg" />
     <Content Include="Content\Images\cardboard2Big.jpg" />
     <Content Include="Content\Images\cardboard3.jpg" />
+    <Content Include="Content\Images\dash-line.png" />
     <Content Include="Content\Images\paper2Big.JPG" />
     <Content Include="Content\Images\paper3.jpg" />
     <Content Include="Content\Images\paper2.jpg" />

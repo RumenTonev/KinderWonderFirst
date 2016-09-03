@@ -98,6 +98,13 @@
     height: 100%;
     top: 0%;
     padding-top: 10%;
+    border: 1pt solid black;
+}
+
+.btn-rewards {
+    position: relative;
+    bottom: 0;
+    margin: 7%;
 }
 
 .btn-toys {
@@ -105,9 +112,20 @@
     margin: 4%;
 }
 
-.btn-rewards {
-    position: relative;
-    margin: 7%;
+.dashed-line {
+    padding: 5px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.index-row {
+    display: inline-block;
+    font-family: "A.C.M.E";
+    font-size: 24pt;
+    color: #e74010;
+    padding: 40px;
+    text-align: center;
+    border: 1pt solid black;
 }
 
 .tutorials-body {
