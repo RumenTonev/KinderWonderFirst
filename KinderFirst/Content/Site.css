@@ -58,6 +58,10 @@
     color: #e74010;
 }
 
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
 .container {
     max-width: 64vw;
     min-width: 1000px;
