@@ -22,6 +22,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="navbar-btn-custom">@Html.ActionLink("Начало", "Index", "Home")</li>
+                    <li class="dropdown navbar-btn-custom">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Уроци<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="paper"})">Хартия</a></li>
+                            <li><a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="naturalmaterial"})">Подръчни материали</a></li>
+                            <li><a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})">Картон</a></li>
+                            <li><a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})">Шаблони</a></li>
+                        </ul>
+                    </li>
                     <li class="navbar-btn-custom">@Html.ActionLink("Галерия", "Gallery", "Pictures")</li>
                     <li class="navbar-btn-custom">@Html.ActionLink("Награди", "Rewards", "Home")</li>
                     <li class="navbar-btn-custom">@Html.ActionLink("Печеливши", "Winners", "Home")</li>

@@ -38,13 +38,33 @@
     font-size: 22px;
 }
 
+.dropdown-menu {
+    background-color: #e74010;
+    border-radius: 10px;
+}
+
+    .dropdown-menu > li > a {
+        background-color: #e74010;
+        color: white;
+    }
+
+        .dropdown-menu > li > a:hover {
+            background-color: white;
+            color: #e74010;
+        }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: white;
+    color: #e74010;
+}
+
 .container {
     max-width: 64vw;
     min-width: 1000px;
 }
 
 .body-content {
-    padding-top: 60px;
+    padding-top: 65px;
     padding-bottom: 90px;
 }
 
@@ -95,37 +115,50 @@
 
 .index-body-btns {
     position: absolute;
-    height: 100%;
-    top: 0%;
-    padding-top: 10%;
-    border: 1pt solid black;
+    bottom: 0%;
+    padding: 5%;
 }
 
-.btn-rewards {
-    position: relative;
-    bottom: 0;
-    margin: 7%;
+.index-table {
+    font-family: "A.C.M.E";
+    font-size: 20pt;
+    color: #e74010;
+    text-align: center;
 }
 
-.btn-toys {
-    position: relative;
-    margin: 4%;
+.index-table-title {
+    font-size: 34pt;
+    font-weight: bold;
+    text-align: center;
+    padding: 40px;
 }
+
+.index-table-button {
+    display: inline-block;
+}
+
+.index-table-description {
+    width: 1%;
+}
+
+.index-table-play-now {
+    padding: 40px;
+    padding-bottom: 60px;
+}
+
+.btn-play-now {
+    background-color: #e74010;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    outline: none;
+}
+
 
 .dashed-line {
     padding: 5px;
     margin-top: 50px;
     margin-bottom: 50px;
-}
-
-.index-row {
-    display: inline-block;
-    font-family: "A.C.M.E";
-    font-size: 24pt;
-    color: #e74010;
-    padding: 40px;
-    text-align: center;
-    border: 1pt solid black;
 }
 
 .tutorials-body {

@@ -5,65 +5,63 @@
 
             <div class="index-body-btns col-lg-4 col-md-4 col-sm-4 col-xs-4">
                 <a type="button" href="@Url.Action("Rewards", "Home", new  {id="rewards"})" role="button">
-                    <img class="btn-rewards img-responsive grow-small" src="~/Content/Images/rewards.png" />
+                    <img class="img-responsive grow-big" src="~/Content/Images/rewards.png" />
                 </a>
             </div>
-
         </div>
 
         <img class="img-responsive dashed-line" src="~/Content/Images/dash-line.png" />
 
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 index-row" style="font-size: 34pt; font-weight: bold;">
-            Избери материал
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 index-row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <a type="button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="paper"})" role="button">
-                    <img class="btn-toys img-responsive grow-big" src="~/Content/Images/paper.png" />
-                </a>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                Хартията не е само за писане! Вдъхнови се от една от нашите идеи или използвай въображението си, за да създадеш най-забавната играчка от хартия!
-            </div>
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 index-row">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                Не бързай да изхвърляш кутията от яйца. Виж как бързо и лесно може да си направиш уникален хеликоптер, който с твоя помощ да полети високо!
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <a type="button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="naturalmaterial"})" role="button">
-                    <img class="btn-toys img-responsive grow-big" src="~/Content/Images/naturalmaterial.png" />
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 index-row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <a type="button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})" role="button">
-                    <img class="btn-toys img-responsive grow-big" src="~/Content/Images/cardboard.png" />
-                </a>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                Старите кутии от обувки бързо могат да се превърнат в нещо забавно и интересно. Покажи ни своята най-оригинална картонена играчка.
-            </div>
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 index-row">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                Подготви се за есента с някой от страхотните ни шаблони. Свали, изрежи и ни покажи как се забавляваш!
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <a type="button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="printables"})" role="button">
-                    <img class="btn-toys img-responsive grow-big" src="~/Content/Images/printables.png" />
-                </a>
-            </div>
-        </div>
-
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 index-row">
-            Снимай се със своята играчка и <button>Участвай!</button>
-        </div>
+        <table class="index-table col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <tr>
+                <th colspan="3" class="index-table-title">Разгледай, избери, направи!</th>
+            </tr>
+            <tr>
+                <td>
+                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="paper"})" role="button">
+                        <img class="img-responsive grow-big" src="~/Content/Images/paper.png" />
+                    </a>
+                </td>
+                <td colspan="2" class="index-table-description">
+                    Хартията не е само за писане! Вдъхнови се от една от нашите идеи или използвай въображението си, за да създадеш най-забавната играчка от хартия!
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="index-table-description">
+                    Не бързай да изхвърляш кутията от яйца. Виж как бързо и лесно може да си направиш уникален хеликоптер, който с твоя помощ да полети високо!
+                </td>
+                <td>
+                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="naturalmaterial"})" role="button">
+                        <img class="img-responsive grow-big" src="~/Content/Images/naturalmaterial.png" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})" role="button">
+                        <img class="img-responsive grow-big" src="~/Content/Images/cardboard.png" />
+                    </a>
+                </td>
+                <td colspan="2" class="index-table-description">
+                    Старите кутии от обувки бързо могат да се превърнат в нещо забавно и интересно. Покажи ни своята най-оригинална картонена играчка.
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="index-table-description">
+                    Подготви се за есента с някой от страхотните ни шаблони. Свали, изрежи и ни покажи как се забавляваш!
+                </td>
+                <td>
+                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="printables"})" role="button">
+                        <img class="img-responsive grow-big" src="~/Content/Images/printables.png" />
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="index-table-play-now">
+                    Снимай се със своята играчка и <button class="btn-play-now">Участвай!</button>
+                </td>
+            </tr>
+        </table>
 
     </div>
 </div>
