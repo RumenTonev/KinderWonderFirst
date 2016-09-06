@@ -146,14 +146,14 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .index-table-play-now {
-    padding: 40px;
-    padding-bottom: 60px;
+    padding: 60px;
 }
 
 .btn-play-now {
     background-color: #e74010;
     color: white;
     padding: 20px;
+    margin-left: 10px;
     border-radius: 15px;
     outline: none;
 }
@@ -174,12 +174,13 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
     height: auto;
     width: auto;
+    max-height: 26vh;
     margin-bottom: 10px;
     margin-right: 25px;
 }
 
 .tutorial-details-container {
-    max-height: 87vh;
+    max-height: 78vh;
     overflow: auto;
 }
 
