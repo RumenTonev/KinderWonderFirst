@@ -80,6 +80,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     height: 150px;
     width: 100%;
     background-repeat: repeat;
+    z-index: 100;
 }
 
 .footer-text {
@@ -152,11 +153,18 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .btn-play-now {
     background-color: #e74010;
     color: white;
+    font-size: 20pt;
     padding: 20px;
     margin-left: 10px;
     border-radius: 15px;
     outline: none;
+    border: 3px solid #ca3434;
 }
+
+    .btn-play-now:hover {
+        color: white;
+        text-decoration: underline;
+    }
 
 
 .dashed-line {
@@ -190,22 +198,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .gallery-body {
-    padding-top: 65px;
     text-align: right;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 50px;
-}
-
-.gallery-navigation {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    text-align: right;
-    background-color: white;
-    z-index: 100;
 }
 
 .gallery-item {
@@ -298,6 +294,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     .rewards-more-info tr:nth-child(even) {
         background-color: whitesmoke;
     }
+
+.winners-body {
+    text-align: center;
+}
 
 .rules-body {
     margin: auto;

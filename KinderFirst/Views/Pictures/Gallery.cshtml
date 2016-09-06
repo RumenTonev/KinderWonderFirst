@@ -7,10 +7,7 @@
 }
 
 <div class="gallery-body">
-    <div class="gallery-navigation container">
-        @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
-    </div>
-
+    @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
     <div class="row">
 
         @{
@@ -71,7 +68,8 @@
             }
         }
     </div>
-    @Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })
+    @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
+    @*@Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })*@
 </div>
 
 <script type="text/javascript">

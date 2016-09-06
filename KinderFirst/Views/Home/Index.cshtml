@@ -58,7 +58,8 @@
             </tr>
             <tr>
                 <td colspan="3" class="index-table-play-now">
-                    Снимай се със своята играчка и <button class="btn-play-now grow-big">Участвай!</button>
+                    Снимай се със своята играчка и @Html.ActionLink("Участвай!", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-play-now grow-big" })
+
                 </td>
             </tr>
         </table>
