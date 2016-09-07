@@ -378,8 +378,9 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     }
 
 .modal-content {
-    width: 70% !important;
+    width: 100% !important;
     margin: 30px auto !important;
+    height: 80% !important;
 }
 
 /*Fonts*/
