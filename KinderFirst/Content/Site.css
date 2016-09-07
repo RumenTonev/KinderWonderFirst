@@ -1,18 +1,3 @@
-@font-face {
-    font-family: "A.C.M.E";
-    src: url('../fonts/ACMENorm.TTF');
-}
-
-@font-face {
-    font-family: "A.C.M.E Bold";
-    src: url('../fonts/ACMEBold.ttf');
-}
-
-@font-face {
-    font-family: "Suco De Laranja";
-    src: url('../fonts/SucoDeLaranja.otf');
-}
-
 ﻿.navbar {
     position: fixed;
     background-color: #e74010;
@@ -140,6 +125,8 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .index-table {
+    max-width: 64vw;
+    max-width: 1600px;
     font-family: "A.C.M.E";
     font-size: 20pt;
     color: #e74010;
@@ -393,4 +380,21 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .modal-content {
     width: 70% !important;
     margin: 30px auto !important;
+}
+
+/*Fonts*/
+
+@font-face {
+    font-family: "A.C.M.E";
+    src: url('../fonts/ACMENorm.TTF');
+}
+
+@font-face {
+    font-family: "A.C.M.E Bold";
+    src: url('../fonts/ACMEBold.ttf');
+}
+
+@font-face {
+    font-family: "Suco De Laranja";
+    src: url('../fonts/SucoDeLaranja.otf');
 }
