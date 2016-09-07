@@ -1,3 +1,18 @@
+@font-face {
+    font-family: "A.C.M.E";
+    src: url('../fonts/ACMENorm.TTF');
+}
+
+@font-face {
+    font-family: "A.C.M.E Bold";
+    src: url('../fonts/ACMEBold.ttf');
+}
+
+@font-face {
+    font-family: "Suco De Laranja";
+    src: url('../fonts/SucoDeLaranja.otf');
+}
+
 ﻿.navbar {
     position: fixed;
     background-color: #e74010;
