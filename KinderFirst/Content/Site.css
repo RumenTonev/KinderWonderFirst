@@ -120,8 +120,51 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .index-body-btns {
     position: absolute;
+    height: 75%;
+    width: 27%;
     bottom: 0%;
-    padding: 5%;
+    margin: 5%;
+    z-index: 100;
+}
+
+.index-body-white-box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    opacity: 0.7;
+    border-radius: 20pt;
+}
+
+.index-btn-play-now {
+    font-family: "A.C.M.E";
+    font-size: 30px;
+    color: white;
+    background-color: #e74010;
+    position: absolute;
+    width: 60%;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    z-index: 100;
+}
+
+    .index-btn-play-now:hover {
+        color: white;
+    }
+
+.index-btn-reward {
+    position: absolute;
+    max-width: 65%;
+    bottom: 6%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
 }
 
 .index-table {
