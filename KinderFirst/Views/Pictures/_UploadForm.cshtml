@@ -67,7 +67,7 @@ new AjaxOptions() { HttpMethod = "POST" },
 new { enctype = "multipart/form-data", id = "avatar-upload-form"}))
                 { 
                     @Html.AntiForgeryToken()
-                    <input type="file" name="files" /><span id="avatar-message" >Your picture exceeds 2 MB limit</span><br>
+                    <input type="file" name="files" /><span id="avatar-message" >Your picture exceeds 2 MB limit.Plaese resize.</span><br>
                     <div class="upload-file-notice">Maximum Size: <span id="avatar-max-size"></span> MB</div>
                 }
                 <div class="upload-progress col-md-6 hidden">
