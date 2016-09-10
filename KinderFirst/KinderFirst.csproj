@@ -260,8 +260,6 @@
     <Content Include="Content\Images\wave.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Printables\kur.jpg" />
-    <Content Include="Content\Printables\20160813_173548.jpg" />
-    <Content Include="Content\Printables\20160813_173822.jpg" />
     <Content Include="Content\site.avatar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
