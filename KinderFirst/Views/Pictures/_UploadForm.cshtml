@@ -4,12 +4,12 @@
 
 <div class="modal-body">
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 toppadding">
             @using (Html.BeginForm("ProcessForm", "Pictures", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
 
                 <div class="form-horizontal">
-                    <hr />
+                    
                     @Html.ValidationSummary(true)
                     <div class="form-group">
                         @Html.LabelFor(model => model.FirstName, new { @class = "control-label col-md-2" })
@@ -60,14 +60,14 @@
                 Html.EnableUnobtrusiveJavaScript(false);
             }
             </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 toppadding">
             <section id="avatar-upload-box">
                 @using (Ajax.BeginForm("Fun", "Picures",
 new AjaxOptions() { HttpMethod = "POST" },
-new { enctype = "multipart/form-data", id = "avatar-upload-form" }))
-                {
+new { enctype = "multipart/form-data", id = "avatar-upload-form"}))
+                { 
                     @Html.AntiForgeryToken()
-                    <input type="file" name="files" /><br>
+                    <input type="file" name="files" /><span id="avatar-message" >Your picture exceeds 2 MB limit</span><br>
                     <div class="upload-file-notice">Maximum Size: <span id="avatar-max-size"></span> MB</div>
                 }
                 <div class="upload-progress col-md-6 hidden">

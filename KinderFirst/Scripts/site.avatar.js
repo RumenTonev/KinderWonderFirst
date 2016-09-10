@@ -25,6 +25,14 @@ $(function () {
                         $('#avatar-upload-form').submit();
                     } else {
                         // File too large
+                       
+                        $("#avatar-message").toggle();
+                            debugger;
+                            setTimeout(function () {
+                                $("#avatar-message").toggle();
+                            }, 10000);
+                            
+                        
                         $('#avatar-upload-form .upload-file-notice').addClass('bg-danger');
                     }
                 }

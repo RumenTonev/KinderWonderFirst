@@ -259,6 +259,9 @@
     <Content Include="Content\jquery.Jcrop.min.css" />
     <Content Include="Content\Images\wave.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Printables\kur.jpg" />
+    <Content Include="Content\Printables\20160813_173548.jpg" />
+    <Content Include="Content\Printables\20160813_173822.jpg" />
     <Content Include="Content\site.avatar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -269,6 +272,7 @@
     <Content Include="fonts\SucoDeLaranja.otf" />
     <Content Include="fonts\ACMEBold.ttf" />
     <Content Include="fonts\ACMENorm.TTF" />
+    <Content Include="Content\Pdf\kur.pdf" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -290,7 +294,9 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\site.avatar.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -331,6 +337,8 @@
     <Content Include="Views\Home\Rewards.cshtml" />
     <Content Include="Views\Pictures\Gallery.cshtml" />
     <Content Include="Views\Pictures\_UploadForm.cshtml" />
+    <Content Include="Views\Pictures\_PartialPdf.cshtml" />
+    <Content Include="Views\Pictures\Printables.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -207,6 +207,29 @@ namespace KinderFirst.Controllers
         {
             return PartialView("_UploadForm");
         }
+
+        public ActionResult GetPdf(string name)
+        {
+                string pathSource = Server.MapPath(String.Format("~/Content/Pdf/{0}.pdf",name));
+                FileStream fsSource = new FileStream(pathSource, FileMode.Open, FileAccess.Read);
+                return new FileStreamResult(fsSource, "application/pdf");
+        }
+
+       public ActionResult Printables()
+        {
+           var paths= Directory.EnumerateFiles(Server.MapPath("~/Content/Printables"));
+           
+            string[] stringSeparators = new string[] { "\\Printables\\",".jpg"};
+            List<string> names = new List<string>();
+            string[] result;
+            foreach (var item in paths)
+            {
+                result = item.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+                names.Add(result[1]);
+            }
+
+            return View(names);
+        }
         public async Task<ActionResult> Like(string itemId)
         {
 
