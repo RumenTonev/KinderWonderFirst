@@ -242,6 +242,9 @@
     <Content Include="Content\Images\Reward\12-Detail.jpg" />
     <Content Include="Content\Images\Reward\13-Detail.jpg" />
     <Content Include="Content\Images\Reward\14-Combination.jpg" />
+    <Content Include="Content\Images\rewards.png" />
+    <Content Include="Content\Images\rewards1.png" />
+    <Content Include="Content\Images\rewards2.png" />
     <Content Include="Content\Jcrop.gif" />
     <Content Include="Content\Images\naturalmaterial1.jpg" />
     <Content Include="Content\Images\naturalmaterial1Big.jpg" />
@@ -254,7 +257,6 @@
     <Content Include="Content\Images\printables1.jpg" />
     <Content Include="Content\Images\printables2.jpg" />
     <Content Include="Content\Images\printables3.jpg" />
-    <Content Include="Content\Images\rewards.png" />
     <Content Include="Content\jquery.Jcrop.css" />
     <Content Include="Content\jquery.Jcrop.min.css" />
     <Content Include="Content\Images\wave.png" />
