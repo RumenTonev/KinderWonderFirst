@@ -447,6 +447,24 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     margin: 30px auto !important;
     height: 80% !important;
 }
+.kur {
+    width: 100%;
+    height: 100%;
+}
+.toppadding{
+    padding-top:10%;
+}
+.embed-responsive {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+#avatar-message {
+    color:red;
+    display:none;
+}
 
 /*Fonts*/
 
