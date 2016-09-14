@@ -264,6 +264,41 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     margin: auto;
 }
 
+.printables-body {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 15px;
+}
+
+.printables-img-container{
+    overflow: hidden;
+    margin: 3%;
+    margin-top:6%;
+}
+
+.printables-item{
+    padding: 10px;
+    text-align:center;
+}
+
+.printables-item-img{
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 0.5s ease; /* Safari and Chrome */
+    -moz-transition: all 0.5s ease; /* Firefox */
+    -ms-transition: all 0.5s ease; /* IE 9 */
+    -o-transition: all 0.5s ease; /* Opera */
+    transition: all 0.5s ease;
+}
+
+    .printables-item-img:hover {
+        -webkit-transform: scale(1.25); /* Safari and Chrome */
+        -moz-transform: scale(1.25); /* Firefox */
+        -ms-transform: scale(1.25); /* IE 9 */
+        -o-transform: scale(1.25); /* Opera */
+        transform: scale(1.25);
+    }
+
 .gallery-body {
     text-align: right;
     padding-left: 10px;

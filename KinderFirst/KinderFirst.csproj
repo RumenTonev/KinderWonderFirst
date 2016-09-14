@@ -261,7 +261,11 @@
     <Content Include="Content\jquery.Jcrop.min.css" />
     <Content Include="Content\Images\wave.png" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\Printables\kur.jpg" />
+    <Content Include="Content\Printables\labels.jpg" />
+    <Content Include="Content\Printables\calendar.jpg" />
+    <Content Include="Content\Printables\mask.jpg" />
+    <Content Include="Content\Printables\pencil.jpg" />
+    <Content Include="Content\Printables\bookmark.jpg" />
     <Content Include="Content\site.avatar.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -272,7 +276,11 @@
     <Content Include="fonts\SucoDeLaranja.otf" />
     <Content Include="fonts\ACMEBold.ttf" />
     <Content Include="fonts\ACMENorm.TTF" />
-    <Content Include="Content\Pdf\kur.pdf" />
+    <Content Include="Content\Pdf\labels.pdf" />
+    <Content Include="Content\Pdf\calendar.pdf" />
+    <Content Include="Content\Pdf\mask.pdf" />
+    <Content Include="Content\Pdf\pencil.pdf" />
+    <Content Include="Content\Pdf\bookmark.pdf" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />

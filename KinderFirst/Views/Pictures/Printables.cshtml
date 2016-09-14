@@ -3,18 +3,17 @@
 @{
     ViewBag.Title = "Gallery";
 }
-<div class="gallery-body">
+<div class="printables-body">
   
     <div class="row">
         @{
             foreach (var item in Model)
             {
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 gallery-item">
-                    <div class="gallery-img-container box-shadow">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 printables-item">
+                    <div class="printables-img-container box-shadow">
                         <a type="button" class="index-table-button" href="@Url.Action("GetPdf","Pictures",new { name=item})" target = "_blank" role = "button">
-                            <img class="gallery-item-img" src="@Url.Content(String.Format("~/Content/Printables/{0}.jpg",item))" />
+                            <img class="printables-item-img" src="@Url.Content(String.Format("~/Content/Printables/{0}.jpg",item))" />
                         </a>
-
 
              </div>
                 </div>
