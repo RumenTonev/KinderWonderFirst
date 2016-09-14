@@ -17,8 +17,8 @@ namespace KinderFirst
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //DocumentDBRepository<GalleryItem>.Initialize();
-            //DocumentDBRepository<IpItem>.Initialize();
+            DocumentDBRepository<GalleryItem>.Initialize();
+            DocumentDBRepository<IpItem>.Initialize();
         }
     }
 }
