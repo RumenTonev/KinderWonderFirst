@@ -245,6 +245,7 @@
     <Content Include="Content\Images\rewards.png" />
     <Content Include="Content\Images\rewards1.png" />
     <Content Include="Content\Images\rewards2.png" />
+    <Content Include="Content\Images\photoicon.png" />
     <Content Include="Content\Jcrop.gif" />
     <Content Include="Content\Images\naturalmaterial1.jpg" />
     <Content Include="Content\Images\naturalmaterial1Big.jpg" />

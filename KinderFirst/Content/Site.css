@@ -118,14 +118,6 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: none;
 }
 
-.index-heading {
-    position: relative;
-    font-family: "A.C.M.E Bold";
-    color: #e74010;
-    text-align: center;
-    z-index: 100;
-}
-
 .index-body-btns {
     position: absolute;
     display: table;
@@ -199,10 +191,14 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .index-table-title {
-    font-size: 34pt;
+    font-size: 32pt;
     font-weight: bold;
     text-align: center;
     padding: 40px;
+}
+
+.index-table-title:{
+    padding:100px;
 }
 
 .index-table-button {
@@ -265,9 +261,18 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .printables-body {
+    margin-top: 30px;
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 15px;
+}
+
+.printables-heading {
+    position: relative;
+    font-family: "A.C.M.E";
+    color: #e74010;
+    text-align: center;
+    z-index: 100;
 }
 
 .printables-img-container{
