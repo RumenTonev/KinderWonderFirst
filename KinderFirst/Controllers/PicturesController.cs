@@ -35,37 +35,16 @@ namespace KinderFirst.Controllers
             var model = new SectionDetails(id);
             return View(model);
         }
-        [HttpGet]
-        public ActionResult SetTutorialTutoPic(string id)
-        {
-            using (ApplicationDbContext db = ApplicationDbContext.Create())
-            {
-                var result = db.TutoPictures.Where(x => x.TutoId == id).ToList();
-                return View(result);
-            }
-        }
 
         [HttpGet]
         public async Task<ActionResult> Gallery(int? page,int? size)
         {
             int pageSize = (size ?? 15);
             int pageNumber = (page ?? 1);
-            var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync();
+            var items = await DocumentDBRepository<GalleryItem>.GetItemsAsync(x=>x.IsIp==false);
             return View(items.ToPagedList(pageNumber, pageSize));
         }
 
-        [HttpPost]
-        public async Task<ActionResult> CreateGalleryItem([Bind(Include = "Id,Owner,Mail,,PicLink,Likes")] GalleryItem item)
-        {
-
-                if (ModelState.IsValid)
-                {
-                    await DocumentDBRepository<GalleryItem>.CreateItemAsync(item);
-                    return RedirectToAction("Index");
-                }
-
-            return View();
-        }
         [HttpDelete]
         public async Task<ActionResult> DeleteGalleryItem( string id)
         {
@@ -114,6 +93,7 @@ namespace KinderFirst.Controllers
             {
                 Mail = input.Mail,
                 Owner = String.Format("{0} {1}", input.FirstName, input.LastName),
+                IsIp=false
             };
 
             var result = await DocumentDBRepository<GalleryItem>.CreateItemAsync(item);
@@ -128,7 +108,7 @@ namespace KinderFirst.Controllers
             return RedirectToAction("Gallery"); 
         }
         [HttpPost]
-        public ActionResult Fun(IEnumerable<HttpPostedFileBase> files)
+        public ActionResult UploadPicture(IEnumerable<HttpPostedFileBase> files)
         {
             if (files == null || !files.Any()) return Json(new { success = false, errorMessage = "No file uploaded." });
             var file = files.FirstOrDefault();  // get ONE only
@@ -138,6 +118,51 @@ namespace KinderFirst.Controllers
             return Json(new { success = true, fileName = webPath }); // success
         }
 
+        public ActionResult GetUploadForm()
+        {
+            return PartialView("_UploadForm");
+        }
+
+        public ActionResult GetPdf(string name)
+        {
+                string pathSource = Server.MapPath(String.Format("~/Content/Pdf/{0}.pdf",name));
+                FileStream fsSource = new FileStream(pathSource, FileMode.Open, FileAccess.Read);
+                return new FileStreamResult(fsSource, "application/pdf");
+        }
+
+       public ActionResult Printables()
+        {
+           var paths= Directory.EnumerateFiles(Server.MapPath("~/Content/Printables"));
+           
+            string[] stringSeparators = new string[] { "\\Printables\\",".jpg"};
+            List<string> names = new List<string>();
+            string[] result;
+            foreach (var item in paths)
+            {
+                result = item.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
+                names.Add(result[1]);
+            }
+
+            return View(names);
+        }
+        public async Task<ActionResult> Like(string itemId)
+        {
+
+            string ipAddress = this.Request.UserHostAddress;
+
+                var model = await DocumentDBRepository<IpItem>.GetItemsAsync(x=>x.IP==ipAddress&&x.ItemId==itemId&&x.IsIp);
+
+                if (model.Count()>0)
+                {
+                    this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json(new { responseText = "You can not vote more than once for given entry" }, JsonRequestBehavior.AllowGet);
+                }
+                await DocumentDBRepository<IpItem>.CreateItemAsync(new IpItem() { IP = ipAddress, ItemId = itemId,IsIp=true });
+                var galleryItem = await DocumentDBRepository<GalleryItem>.GetItemAsync(itemId); 
+                galleryItem.Likes++;
+                await DocumentDBRepository<GalleryItem>.UpdateItemAsync(itemId, galleryItem);
+                return this.Content(galleryItem.Likes.ToString()); 
+        }
         private string GetTempSavedFilePath(HttpPostedFileBase file)
         {
             // Define destination
@@ -183,8 +208,8 @@ namespace KinderFirst.Controllers
         private static string SaveTemporaryAvatarFileImage(HttpPostedFileBase file, string serverPath, string fileName)
         {
             var img = new WebImage(file.InputStream);
-           var ratio = img.Height / (double)img.Width;
-           img.Resize(AvatarScreenWidth, (int)(AvatarScreenWidth * ratio));
+            var ratio = img.Height / (double)img.Width;
+            img.Resize(AvatarScreenWidth, (int)(AvatarScreenWidth * ratio));
 
             var fullFileName = Path.Combine(serverPath, fileName);
             if (System.IO.File.Exists(fullFileName))
@@ -202,52 +227,5 @@ namespace KinderFirst.Controllers
             return file.ContentType.Contains("image") ||
                 _imageFileExtensions.Any(item => file.FileName.EndsWith(item, StringComparison.OrdinalIgnoreCase));
         }
-
-        public ActionResult GetUploadForm()
-        {
-            return PartialView("_UploadForm");
-        }
-
-        public ActionResult GetPdf(string name)
-        {
-                string pathSource = Server.MapPath(String.Format("~/Content/Pdf/{0}.pdf",name));
-                FileStream fsSource = new FileStream(pathSource, FileMode.Open, FileAccess.Read);
-                return new FileStreamResult(fsSource, "application/pdf");
-        }
-
-       public ActionResult Printables()
-        {
-           var paths= Directory.EnumerateFiles(Server.MapPath("~/Content/Printables"));
-           
-            string[] stringSeparators = new string[] { "\\Printables\\",".jpg"};
-            List<string> names = new List<string>();
-            string[] result;
-            foreach (var item in paths)
-            {
-                result = item.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
-                names.Add(result[1]);
-            }
-
-            return View(names);
-        }
-        public async Task<ActionResult> Like(string itemId)
-        {
-
-            string ipAddress = this.Request.UserHostAddress;
-
-                var model = await DocumentDBRepository<IpItem>.GetItemsAsync(x=>x.IP==ipAddress&&x.IteamId==itemId);
-
-                if (model.Count()>0)
-                {
-                    this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return Json(new { responseText = "You can not vote more than once for given entry" }, JsonRequestBehavior.AllowGet);
-                }
-                await DocumentDBRepository<IpItem>.CreateItemAsync(new IpItem() { IP = ipAddress, IteamId = itemId });
-                var galleryItem = await DocumentDBRepository<GalleryItem>.GetItemAsync(itemId); 
-                galleryItem.Likes++;
-                await DocumentDBRepository<GalleryItem>.UpdateItemAsync(itemId, galleryItem);
-                return this.Content(galleryItem.Likes.ToString()); 
-        }
-   
     }
 }

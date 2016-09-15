@@ -18,5 +18,7 @@ namespace KinderFirst.Models
         public string PicLink { get; set; }
         [JsonProperty(PropertyName = "likes")]
         public int Likes { get; set; }
+        [JsonProperty(PropertyName = "isip")]
+        public bool IsIp { get; set; }
     }
 }
