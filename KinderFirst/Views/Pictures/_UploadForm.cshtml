@@ -62,7 +62,7 @@
             </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 toppadding">
             <section id="avatar-upload-box">
-                @using (Ajax.BeginForm("Fun", "Picures",
+                @using (Ajax.BeginForm("UploadPicture", "Picures",
 new AjaxOptions() { HttpMethod = "POST" },
 new { enctype = "multipart/form-data", id = "avatar-upload-form"}))
                 { 

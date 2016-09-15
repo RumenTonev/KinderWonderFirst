@@ -9,6 +9,8 @@ namespace KinderFirst.Models
     {
         public int Id { get; set; }
         public string IP { get; set; }
-        public string IteamId { get; set; }
+        public string ItemId { get; set; }
+      
+        public bool IsIp { get; set; }
     }
 }
