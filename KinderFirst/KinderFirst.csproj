@@ -200,6 +200,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Age.cs" />
     <Compile Include="Models\GalleryItem.cs" />
     <Compile Include="Models\GalleryItemView.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -268,6 +269,8 @@
     <Content Include="Content\Printables\pencil.jpg" />
     <Content Include="Content\Printables\bookmark.jpg" />
     <Content Include="Content\site.avatar.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -282,9 +285,13 @@
     <Content Include="Content\Pdf\mask.pdf" />
     <Content Include="Content\Pdf\pencil.pdf" />
     <Content Include="Content\Pdf\bookmark.pdf" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
+    <Content Include="Scripts\jquery.cookie-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.form.min.js.map" />
@@ -302,6 +309,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\site.avatar.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -348,6 +357,7 @@
     <Content Include="Views\Pictures\_UploadForm.cshtml" />
     <Content Include="Views\Pictures\_PartialPdf.cshtml" />
     <Content Include="Views\Pictures\Printables.cshtml" />
+    <Content Include="Views\Shared\_AgeFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

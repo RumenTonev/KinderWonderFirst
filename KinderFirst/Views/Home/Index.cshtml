@@ -77,9 +77,38 @@
             </table>
         </div>
     </div>
+    @Scripts.Render("~/bundles/toastr")
 </div>
-
 <script>
+
+    function OnAjaxRequestBegin() {
+        console.log("This is the OnBegin Callback");
+    }
+    function OnAjaxRequestSuccess(data) {
+        if (data.success)
+        {
+            if (!$.cookie('modal')) {
+                //for local use
+                // $.cookie("modal", 1, { expires: 86, path: '/', domain: 'localhost' });
+                $.cookie("modal", 1, { expires: 86, path: '/', domain: 'shareimagination.bg' });
+            }
+            $('#modal-container').modal('hide');
+        }        
+    else
+        {
+            toastr.error('An error occured in the solution!', data.responseText)
+    }
+        debugger;
+        console.log("This is the OnSuccessCallback: " + data);
+    }
+    function OnAjaxRequestFailure(request, error) {
+        toastr.error('An error occured in the solution!Please contact site administrator');
+    }
+    function OnAjaxRequestComplete(request, status) {
+        console.log("This is the OnComplete Callback");
+        console.log(request);
+    }
+
     $("#playButton").click(function () {
         $('html, body').animate({
             scrollTop: $("#indexTable").offset().top
