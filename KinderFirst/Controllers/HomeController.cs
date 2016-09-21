@@ -34,5 +34,12 @@ namespace KinderFirst.Controllers
             return View();
         }
 
+        public ActionResult SiteTermsOfUse()
+        {
+            ViewBag.Message = "Terms of Use";
+
+            return View();
+        }
+
     }
 }

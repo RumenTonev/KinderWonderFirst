@@ -44,18 +44,13 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 container body-content">
         @RenderBody()
     </div>
-
     <footer class="wave-div">
         <div class="footer-text">&copy; @DateTime.Now.Year - Kinder Milch-Schnitte</div>
         <div class="sub-menu col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            @Html.ActionLink("Начало", "Index", "Home")
-            @Html.ActionLink("Галерия", "Gallery", "Pictures")
-            @Html.ActionLink("Награди", "Rewards", "Home")
-            @Html.ActionLink("Печеливши", "Winners", "Home")
-            @Html.ActionLink("Правила", "Rules", "Home")
+            @*@Html.ActionLink("Правила за употреба", "SiteTermsOfUse", null, new { target = "_blank" })*@
+            <a href="" onclick="touPopup()">Правила за употреба</a>
         </div>
     </footer>
-
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     <div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
@@ -85,6 +80,12 @@
                 return false;
             });
         });
+    </script>
+
+    <script>
+        function touPopup() {
+            var myWindow = window.open("Home/SiteTermsOfUse", "Правила за употреба", "width=400,height=400");
+        }
     </script>
 </body>
 </html>
