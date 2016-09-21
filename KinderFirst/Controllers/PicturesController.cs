@@ -107,6 +107,19 @@ namespace KinderFirst.Controllers
 
             return RedirectToAction("Gallery"); 
         }
+
+        public ActionResult CheckAge(Age item)
+        {
+            DateTime bday = new DateTime(item.Year, Int32.Parse(item.Month), Int32.Parse(item.Day));
+            int age = (int)((DateTime.Now - bday).TotalDays / 365.242199);
+            if(age<12)
+            {
+                return Json(new { success = false, errorMessage = "You are under 12 years old and thus not eligible." });
+            }
+            return Json(new { success = true, errorMessage = "You are eligible." });
+        }
+
+
         [HttpPost]
         public ActionResult UploadPicture(IEnumerable<HttpPostedFileBase> files)
         {
@@ -155,7 +168,7 @@ namespace KinderFirst.Controllers
                 if (model.Count()>0)
                 {
                     this.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    return Json(new { responseText = "You can not vote more than once for given entry" }, JsonRequestBehavior.AllowGet);
+                    return Json(new { errorMessage = "You can not vote more than once for given entry" }, JsonRequestBehavior.AllowGet);
                 }
                 await DocumentDBRepository<IpItem>.CreateItemAsync(new IpItem() { IP = ipAddress, ItemId = itemId,IsIp=true });
                 var galleryItem = await DocumentDBRepository<GalleryItem>.GetItemAsync(itemId); 

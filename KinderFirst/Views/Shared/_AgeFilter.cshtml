@@ -1,0 +1,57 @@
+﻿@model KinderFirst.Models.Age
+@Styles.Render("~/Content/jcrop")
+
+<div class="modal-body">
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 toppadding">
+
+ 
+            @using (Ajax.BeginForm("CheckAge", "Pictures", new AjaxOptions() { HttpMethod = "POST",
+                OnBegin = "OnAjaxRequestBegin",
+                OnFailure = "OnAjaxRequestFailure",
+                OnSuccess = "OnAjaxRequestSuccess",
+                OnComplete = "OnAjaxRequestComplete"
+            }))
+            {
+
+                <div class="form-horizontal">
+
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Day, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Day)
+                            @Html.ValidationMessageFor(model => model.Day)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Month, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Month)
+                            @Html.ValidationMessageFor(model => model.Month)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Year, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Year)
+                            @Html.ValidationMessageFor(model => model.Year)
+                        </div>
+                    </div>                  
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <button type="submit" id="approve-btn" class="btn btn-danger">Save</button>
+                    </div>
+                </div>
+                //Html.EnableUnobtrusiveJavaScript(false);
+            }
+        </div>
+          
+        
+    </div>
+</div>
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/jqueryform")

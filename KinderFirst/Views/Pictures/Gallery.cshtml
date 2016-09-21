@@ -65,6 +65,7 @@
         }
     </div>
     @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
+    @Scripts.Render("~/bundles/toastr")
     @*@Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })*@
 </div>
 
