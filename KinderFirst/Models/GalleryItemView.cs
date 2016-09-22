@@ -9,17 +9,17 @@ namespace KinderFirst.Models
     public class GalleryItemView
     {
         [MinLength(3),MaxLength(20)]
-        [Required(ErrorMessage = "The First Name is required")]
+        [Required(ErrorMessage = "Собственото име е задължително")]
         public string FirstName { get; set; }
         [MinLength(3), MaxLength(20)]
-        [Required(ErrorMessage = "The Lat Name is required")]
+        [Required(ErrorMessage = "Фамилията е задължителна")]
         public string LastName { get; set; }
-        [Required(ErrorMessage = "The email address is required")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Required(ErrorMessage = "Имайлът е задължителен")]
+        [EmailAddress(ErrorMessage = "Невалиден имейл адрес")]
         [MinLength(3), MaxLength(20)]
         public string Mail { get; set; }
-        [Required(ErrorMessage = "The phone is required")]
-        [RegularExpression("^([0-9]){4,10}$", ErrorMessage = "Please enter valid phone no 4 to 10 lentgh only numbers.")]
+        [Required(ErrorMessage = "Телефонният номер е задължителен")]
+        [RegularExpression("^([0-9]){4,10}$", ErrorMessage = "Моля въведет само цифри, от 4 до 10 символа дължина.")]
         public string Phone { get; set; }
         public string PicWidth { get; set; }
         public string PicHeight { get; set; }

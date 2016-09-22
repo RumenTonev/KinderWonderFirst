@@ -44,18 +44,17 @@ $(function () {
 function initAvatarUpload() {
     $('#avatar-upload-form').ajaxForm({
         beforeSend: function () {
-            updateProgress(0);
             $('#avatar-upload-form').addClass('hidden');
         },
         uploadProgress: function (event, position, total, percentComplete) {
             updateProgress(percentComplete);
         },
         success: function (data) {
-            debugger;
-            updateProgress(100);
             if (data.success === false) {
-                $('#status').html(data.errorMessage);
+                $('#avatar-upload-form').removeClass('hidden');
+                toastr.error(data.errorMessage);
             } else {
+                $("#approve-btn").removeAttr("disabled");
                 $('#preview-pane .preview-container img').attr('src', data.fileName);
 
                 var img = $('#crop-avatar-target');

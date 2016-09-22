@@ -356,7 +356,7 @@
     <Content Include="Views\AdminUpload\Index.cshtml" />
     <Content Include="Views\Home\Rewards.cshtml" />
     <Content Include="Views\Pictures\Gallery.cshtml" />
-    <Content Include="Views\Pictures\_UploadForm.cshtml" />
+    <Content Include="Views\Shared\_UploadForm.cshtml" />
     <Content Include="Views\Pictures\_PartialPdf.cshtml" />
     <Content Include="Views\Pictures\Printables.cshtml" />
     <Content Include="Views\Shared\_AgeFilter.cshtml" />

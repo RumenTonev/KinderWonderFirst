@@ -1,18 +1,82 @@
 ﻿<div class="container index-body">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <img class="img-responsive box-shadow" src="~/Content/Images/background.jpg" id="homeBackground" />
-        <div class="index-body-btns">
-            <div class="index-body-white-box"></div>
-            <div style="height: 100%;">
-                <img class="img-responsive index-image-text" src="~/Content/Images/rewards1.png" />
-                <a href="@Url.Action("PlayNow", "Home")"><img id="playButton" class="img-responsive index-btn-play grow-big" src="~/Content/Images/rewards2.png" /></a>
-                <a type="button" href="@Url.Action("Rewards", "Home", new  {id="rewards"})" role="button">
-                    <img class="img-responsive index-btn-reward grow-big" src="~/Content/Images/rewards.png" />
-                </a>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <img class="img-responsive box-shadow" src="~/Content/Images/background.jpg" id="homeBackground" />
+            <div class="index-body-btns">
+                <div class="index-body-white-box"></div>
+                <div style="height: 100%;">
+
+                    <img class="img-responsive index-image-text" src="~/Content/Images/rewards1.png" />
+
+                    <a href="javascript:;"><img id="playButton" class="img-responsive index-btn-play grow-big" src="~/Content/Images/rewards2.png" /></a>
+
+                    <a type="button" href="@Url.Action("Rewards", "Home", new  {id="rewards"})" role="button">
+                        <img class="img-responsive index-btn-reward grow-big" src="~/Content/Images/rewards.png" />
+                    </a>
+                </div>
             </div>
         </div>
+        <img class="img-responsive dashed-line" src="~/Content/Images/dash-line.png" />
     </div>
-
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <table id="indexTable" class="index-table col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <tr>
+                    <th colspan="3" class="index-table-title">
+                        1. Разгледай галерията <img src="~/Content/Images/photoicon.png" /> и уроците<br />
+                        2. Направи своя играчка<br />
+                        3. Качи снимка и можеш да спечелиш таблет<br />
+                        <br />
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="paper"})" role="button">
+                            <img class="img-responsive grow-big" src="~/Content/Images/paper.png" />
+                        </a>
+                    </td>
+                    <td colspan="2" class="index-table-description">
+                        Хартията не е само за писане! Вдъхнови се от една от нашите идеи или използвай въображението си, за да създадеш най-забавната играчка от хартия!
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="index-table-description">
+                        Не бързай да изхвърляш кутията от яйца. Виж как бързо и лесно може да си направиш уникален хеликоптер, който с твоя помощ да полети високо!
+                    </td>
+                    <td>
+                        <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="naturalmaterial"})" role="button">
+                            <img class="img-responsive grow-big" src="~/Content/Images/naturalmaterial.png" />
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})" role="button">
+                            <img class="img-responsive grow-big" src="~/Content/Images/cardboard.png" />
+                        </a>
+                    </td>
+                    <td colspan="2" class="index-table-description">
+                        Старите кутии от обувки бързо могат да се превърнат в нещо забавно и интересно. Покажи ни своята най-оригинална картонена играчка.
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="index-table-description">
+                        Подготви се за есента с някой от страхотните ни шаблони. Свали, изрежи и ни покажи как се забавляваш!
+                    </td>
+                    <td>
+                        <a type="button" class="index-table-button" href="@Url.Action("Printables", "Pictures", new  {id="printables"})" role="button">
+                            <img class="img-responsive grow-big" src="~/Content/Images/printables.png" />
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="index-table-play-now">
+                        Снимай се със своята играчка и @Html.ActionLink("Участвай!", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-play-now grow-big" })
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
     @Scripts.Render("~/bundles/toastr")
 </div>
 <script>
