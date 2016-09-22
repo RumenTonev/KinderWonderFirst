@@ -7,7 +7,6 @@ namespace KinderFirst.Models
 {
     public class IpItem
     {
-        public int Id { get; set; }
         public string IP { get; set; }
         public string ItemId { get; set; }
       
