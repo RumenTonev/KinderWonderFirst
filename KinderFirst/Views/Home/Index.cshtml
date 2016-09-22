@@ -17,7 +17,44 @@
         </div>
     @Scripts.Render("~/bundles/toastr")
 </div>
+<div id="modal-container" class="modal fade" tabindex="-1" role="dialog">
+       <div class="modal-content">
+               @{ if (Request.Cookies["modal"] == null)
+                            {
+                @Html.Partial("_AgeFilter", new KinderFirst.Models.Age())
+                            }                      
+                    }
+
+    </div>
+</div>
 <script>
+
+         $(function () {
+             // Initialize numeric spinner input boxes
+             //$(".numeric-spinner").spinedit();
+             // Initialize modal dialog
+             // attach modal-container bootstrap attributes to links with .modal-link class.
+             // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+ 
+             $(document).ready(function () {
+ 
+ 
+                 if ($.cookie('modal')) {
+                     $('#modal-container').modal('hide');
+                 }
+                else {
+                     $("#modal-container").modal({ backdrop: "static", keyboard: false });
+                }
+ 
+             });
+
+             $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+             $('#CancelModal').on('click', function () {
+                 return false;
+             });
+         });
 
     function OnAjaxRequestBegin() {
         console.log("This is the OnBegin Callback");
