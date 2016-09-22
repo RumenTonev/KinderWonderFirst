@@ -61,6 +61,25 @@
 
 
     <script>
+        $(function () {
+            // Initialize numeric spinner input boxes
+            //$(".numeric-spinner").spinedit();
+            // Initialize modal dialog
+            // attach modal-container bootstrap attributes to links with .modal-link class.
+            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+
+            $(document).ready(function () {
+
+                if ($.cookie('modal') == null && window.location.href.indexOf("Index") == -1) {
+                    window.location.replace("/Home/Index");
+                }
+
+            });
+
+         
+        });
+
+       
         function touPopup() {
             var myWindow = window.open("http://www.shareimagination.bg/Home/SiteTermsOfUse", "Правила за употреба", "width=400,height=400");
             //var myWindow = window.open("Home/SiteTermsOfUse", "Правила за употреба", "width=400,height=400");
