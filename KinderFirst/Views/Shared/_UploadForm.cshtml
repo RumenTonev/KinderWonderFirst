@@ -6,9 +6,7 @@
     <div class="row">
         <div class="upload-row upload-image-section">
             <section id="avatar-upload-box" class="upload-form-section">
-                @using (Ajax.BeginForm("UploadPicture", "Picures",
-                        new AjaxOptions() { HttpMethod = "POST" },
-                        new { enctype = "multipart/form-data", id = "avatar-upload-form" }))
+                @using (Ajax.BeginForm("UploadPicture", "Pictures", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "avatar-upload-form" }))
                 {
                 @Html.AntiForgeryToken()
                     <input type="file" name="files" /><span id="avatar-message">Снимката ви е по голяма от 2 MB. Моля намалете размера.</span><br>
@@ -71,10 +69,9 @@
                 <div class="row">
                     <div class="upload-element">
                         <button type="button" class="btn btn-default btn-upload" data-dismiss="modal">Отказ</button>
-                        <button type="submit" id="approve-btn " class="btn btn-danger btn-upload">Участвай!</button>
+                        <button type="submit" id="approve-btn" class="btn btn-danger btn-upload" disabled>Участвай!</button>
                     </div>
-                </div>
-                Html.EnableUnobtrusiveJavaScript(false);
+                </div>              
             }
         </div>
     </div>
