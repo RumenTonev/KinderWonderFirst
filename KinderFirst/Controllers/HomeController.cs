@@ -41,5 +41,19 @@ namespace KinderFirst.Controllers
             return View();
         }
 
+        public ActionResult SiteRequirements()
+        {
+            ViewBag.Message = "Site Requirements";
+
+            return View();
+        }
+
+        public ActionResult Contacts()
+        {
+            ViewBag.Message = "Contacts";
+
+            return View();
+        }
+
     }
 }

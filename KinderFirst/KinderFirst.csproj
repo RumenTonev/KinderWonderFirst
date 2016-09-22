@@ -270,6 +270,7 @@
     <Content Include="Content\Printables\pencil.jpg" />
     <Content Include="Content\Printables\bookmark.jpg" />
     <Content Include="Content\site.avatar.css" />
+    <Content Include="Content\specifications.css" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
@@ -359,7 +360,10 @@
     <Content Include="Views\Pictures\_PartialPdf.cshtml" />
     <Content Include="Views\Pictures\Printables.cshtml" />
     <Content Include="Views\Shared\_AgeFilter.cshtml" />
+    <Content Include="Views\Shared\_LayoutNoNavigation.cshtml" />
     <Content Include="Views\Home\SiteTermsOfUse.cshtml" />
+    <Content Include="Views\Home\SiteRequirements.cshtml" />
+    <Content Include="Views\Home\Contacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

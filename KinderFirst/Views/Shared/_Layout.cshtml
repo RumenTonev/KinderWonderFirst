@@ -46,10 +46,13 @@
         @RenderBody()
     </div>
     <footer class="wave-div">
-        <div class="footer-text">&copy; @DateTime.Now.Year - Kinder Milch-Schnitte</div>
+        @*<div class="footer-text">&copy; @DateTime.Now.Year - Kinder Milch-Schnitte</div>*@
         <div class="sub-menu col-lg-12 col-md-12 col-sm-12 col-xs-12">
             @*@Html.ActionLink("Правила за употреба", "SiteTermsOfUse", null, new { target = "_blank" })*@
+            <span class="footer-text">copyright © @DateTime.Now.Year - Kinder Milch-Schnitte</span>
             <a href="" onclick="touPopup()">Правила за употреба</a>
+            <a href="" onclick="reqPopup()">Технически изисквания</a>
+            <a href="" onclick="contactPopup()">Контакти</a>
         </div>
     </footer>
     @Scripts.Render("~/bundles/bootstrap")
@@ -101,6 +104,18 @@
     <script>
         function touPopup() {
             var myWindow = window.open("Home/SiteTermsOfUse", "Правила за употреба", "width=400,height=400");
+        }
+    </script>
+
+    <script>
+        function reqPopup() {
+            var myWindow = window.open("Home/SiteRequirements", "Технически изисквания", "width=400,height=400");
+        }
+    </script>
+
+    <script>
+        function contactPopup() {
+            var myWindow = window.open("Home/Contacts", "Контакти", "width=400,height=400");
         }
     </script>
 </body>
