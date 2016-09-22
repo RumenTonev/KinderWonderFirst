@@ -13,6 +13,13 @@ namespace KinderFirst.Controllers
             return View();
         }
 
+        public ActionResult PlayNow()
+        {
+            ViewBag.Message = "Play Now";
+
+            return View();
+        }
+
         public ActionResult Winners()
         {
             ViewBag.Message = "Winners";
