@@ -367,7 +367,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .gallery-img-container {
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .gallery-item-img {
