@@ -600,7 +600,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .modal-content {
     width: 75% !important;
     max-width: 1100px;
-    margin: 200px auto !important;
+    margin: 8% auto !important;
     /*height: 80% !important;*/
     min-height: 500px;
     min-width: 1000px;
@@ -645,12 +645,14 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 }
 
 .upload-element-box {
+    outline: none;
     color: #e74010;
     background-color: whitesmoke;
     font-size: 25pt;
     padding: 10px;
     width: 60%;
     text-align: center;
+    border: 2pt solid darkgray;
     border-radius: 20px;
 }
 
@@ -678,10 +680,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: none;
 }
 .custom-file-upload {
-    border: 1px solid #ccc;
+    font-size: 20px;
+    font-family: "A.C.M.E";
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+    color: white;
+    background-color: #e74010;
+    border: 1px solid grey;
+    border-radius: 10px;
 }
 /*Fonts*/
 
