@@ -110,7 +110,7 @@ namespace KinderFirst.Controllers
 
         public ActionResult CheckAge(Age item)
         {
-            DateTime bday = new DateTime(item.Year, Int32.Parse(item.Month), Int32.Parse(item.Day));
+            DateTime bday = new DateTime(Int32.Parse(item.Year), Int32.Parse(item.Month), Int32.Parse(item.Day));
             int age = (int)((DateTime.Now - bday).TotalDays / 365.242199);
             if(age<12)
             {

@@ -14,8 +14,8 @@ namespace KinderFirst
                          "~/Scripts/jquery.cookie-1.4.1.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate.min",
-                         "~/Scripts/jquery.validate.unobtrusive.min"));
+                        "~/Scripts/jquery.validate.min.js",
+                         "~/Scripts/jquery.validate.unobtrusive.min.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -28,7 +28,7 @@ namespace KinderFirst
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryform").Include(
                       "~/Scripts/jquery.form.min.js",
-                      "~/Scripts/jquery.Jcrop.minjs",
+                      "~/Scripts/jquery.Jcrop.min.js",
                       "~/Scripts/site.avatar.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
