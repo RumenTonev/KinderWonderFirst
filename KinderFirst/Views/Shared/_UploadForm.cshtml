@@ -10,7 +10,7 @@
                 {
                 @Html.AntiForgeryToken()
                     <label for="file-upload" class="custom-file-upload">
-                        <i class="fa fa-cloud-upload"></i> Качи снимка
+                        <i class="fa fa-cloud-upload"></i> Избери снимка
                     </label>
                     <input id="file-upload" type="file" name="files" />
                 
@@ -52,7 +52,7 @@
                     <br />@Html.ValidationMessageFor(model => model.LastName)
                 </div>
                 <div class="form-group upload-element">
-                    @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "upload-element-box", placeholder = "Имайл" } })
+                    @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "upload-element-box", placeholder = "Имейл" } })
                     <br />@Html.ValidationMessageFor(model => model.Mail)
                 </div>
                 <div class="form-group upload-element">
