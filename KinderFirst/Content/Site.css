@@ -2,6 +2,56 @@
     background-image: url(Images/main_background.jpg);
 }
 
+
+.age-filter-body {
+    position: relative;
+    margin: auto; 
+    text-align: center;
+    max-width: 1000px;
+}
+
+.age-filter-text {
+    text-align: center;
+    font-family: "A.C.M.E";
+    color: gray;
+    font-size: 16pt;
+    width: 100%;
+}
+
+    .age-filter-text h2 {
+        font-family: "A.C.M.E Bold";
+        font-size: 25pt;
+        color: #e74010;
+    }
+
+.age-filter-input {
+    display: inline-block;
+    margin: auto;
+}
+
+.age-filter-box {
+    position: relative;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #e74010;
+    border: 2pt solid lightgrey;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100px;
+}
+
+    .age-filter-box:focus {
+        outline: none;
+        border: 2pt solid darkgray;
+    }
+
+.btn-enter {
+    font-size: 25pt;
+    font-family: "A.C.M.E";
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
 .tou-body {
     background-image: none;
     background-color: white;
@@ -287,7 +337,7 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     margin-bottom: 50px;
 }
 
-.playnow-body{
+.playnow-body {
     background-color: white;
     border-radius: 30px;
 }
@@ -549,10 +599,12 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 
 .modal-content {
     width: 75% !important;
-    margin: 110px auto !important;
-    height: 80% !important;
-    min-height: 900px;
+    max-width: 1100px;
+    margin: 200px auto !important;
+    /*height: 80% !important;*/
+    min-height: 500px;
     min-width: 1000px;
+    border-radius: 20px;
 }
 
 .kur {
