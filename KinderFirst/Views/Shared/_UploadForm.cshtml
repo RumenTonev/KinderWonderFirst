@@ -9,7 +9,12 @@
                 @using (Ajax.BeginForm("UploadPicture", "Pictures", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "avatar-upload-form" }))
                 {
                 @Html.AntiForgeryToken()
-                    <input type="file" name="files" /><span id="avatar-message">Снимката ви е по голяма от 2 MB. Моля намалете размера.</span><br>
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fa fa-cloud-upload"></i> Качи снимка
+                    </label>
+                    <input id="file-upload" type="file" name="files" />
+                
+                    <span id="avatar-message">Снимката ви е по голяма от 2 MB. Моля намалете размера.</span><br>
                     <div class="upload-file-notice">Максимален размер: <span id="avatar-max-size"></span>MB</div>
                 }
                 <div class="upload-progress col-md-6 hidden">

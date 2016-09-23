@@ -674,7 +674,15 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     color: red;
     display: none;
 }
-
+#file-upload{
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
 /*Fonts*/
 
 @font-face {
