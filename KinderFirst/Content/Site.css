@@ -690,6 +690,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     border: 1px solid grey;
     border-radius: 10px;
 }
+#modalPic{
+    width:100%;
+    height:auto;
+}
 /*Fonts*/
 
 @font-face {
