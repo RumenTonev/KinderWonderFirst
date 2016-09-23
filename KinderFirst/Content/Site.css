@@ -694,6 +694,9 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
     width:100%;
     height:auto;
 }
+#dialogCenter{
+margin-left:23%;
+}
 /*Fonts*/
 
 @font-face {

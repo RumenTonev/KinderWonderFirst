@@ -20,7 +20,9 @@ namespace KinderFirst.Controllers
         private const int AvatarScreenWidth = 400;  // ToDo - Change the value of the width of the image on the screen
 
         private const string TempFolder = "/Temp";
+        private const string BigPicFolder = "/Content/Images/BigPic";
         private const string MapTempFolder = "~" + TempFolder;
+        private const string MapBigPicFolder = "~" + BigPicFolder;
 
         private readonly string[] _imageFileExtensions = { ".jpg", ".png", ".gif", ".jpeg" };
 
@@ -78,9 +80,12 @@ namespace KinderFirst.Controllers
             var right = Convert.ToInt32(input.PicRight.Replace("-", "").Replace("px", ""));
             // Get file from temporary folder
             var fn = Path.Combine(Server.MapPath(MapTempFolder), Path.GetFileName(input.PicName));
+            var bigPicName= Path.Combine(Server.MapPath(MapBigPicFolder), Path.GetFileName(input.PicName));
             string extension = Path.GetExtension(fn);
             // ...get image and resize it, ...
             var img = new WebImage(fn);
+            var bigImg = new WebImage(bigPicName);
+           
             //img.Resize(width, height);
             // ... crop the part the user selected, ...
             img.Crop(top, left, img.Height - top - height, img.Width - left - width);
@@ -88,6 +93,7 @@ namespace KinderFirst.Controllers
 
             // ... delete the temporary file,...
             System.IO.File.Delete(fn);
+            System.IO.File.Delete(bigPicName);
             // ... and save the new one.
             GalleryItem item = new GalleryItem()
             {
@@ -99,10 +105,13 @@ namespace KinderFirst.Controllers
             var result = await DocumentDBRepository<GalleryItem>.CreateItemAsync(item);
             var fileNameNew = String.Format("{0}{1}", result.Id, extension);
             var path = Path.Combine(Server.MapPath("~/Content/Images"), fileNameNew);
+            var bigPath = Path.Combine(Server.MapPath("~/Content/Images/BigPic"), fileNameNew);
             item.PicLink = String.Format("~/Content/Images/{0}", fileNameNew);
             item.Id = result.Id;
             await DocumentDBRepository<GalleryItem>.UpdateItemAsync(result.Id, item);
             img.FileName = fileNameNew;
+            bigImg.FileName = fileNameNew;
+            bigImg.Save(bigPath);
             img.Save(path);
 
             return RedirectToAction("Gallery"); 
@@ -180,14 +189,18 @@ namespace KinderFirst.Controllers
         {
             // Define destination
             var serverPath = HttpContext.Server.MapPath(TempFolder);
+            var serverBigPath= HttpContext.Server.MapPath(BigPicFolder);
             if (Directory.Exists(serverPath) == false)
             {
                 Directory.CreateDirectory(serverPath);
             }
-
+            if (Directory.Exists(serverBigPath) == false)
+            {
+                Directory.CreateDirectory(serverBigPath);
+            }
             // Generate unique file name
             var fileName = Path.GetFileName(file.FileName);
-            fileName = SaveTemporaryAvatarFileImage(file, serverPath, fileName);
+            fileName = SaveTemporaryAvatarFileImage(file, serverPath,serverBigPath, fileName);
 
             // Clean up old files after every save
             CleanUpTempFolder(1);
@@ -218,19 +231,28 @@ namespace KinderFirst.Controllers
             }
         }
 
-        private static string SaveTemporaryAvatarFileImage(HttpPostedFileBase file, string serverPath, string fileName)
+        private static string SaveTemporaryAvatarFileImage(HttpPostedFileBase file, string serverPath,string serverBigPath, string fileName)
         {
-            var img = new WebImage(file.InputStream);
+            BinaryReader b = new BinaryReader(file.InputStream);
+            byte[] binData = b.ReadBytes(file.ContentLength);
+            //var kur=file.InputStream.ConvertToBytes()
+            var img = new WebImage(binData);
+            WebImage bigImg = new WebImage(binData);
             var ratio = img.Height / (double)img.Width;
             img.Resize(AvatarScreenWidth, (int)(AvatarScreenWidth * ratio));
-
+            var fullBigName= Path.Combine(serverBigPath, fileName);
             var fullFileName = Path.Combine(serverPath, fileName);
             if (System.IO.File.Exists(fullFileName))
             {
                 System.IO.File.Delete(fullFileName);
             }
+            if (System.IO.File.Exists(fullBigName))
+            {
+                System.IO.File.Delete(fullBigName);
+            }
 
             img.Save(fullFileName);
+            bigImg.Save(fullBigName);
             return Path.GetFileName(img.FileName);
         }
 
