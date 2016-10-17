@@ -11,7 +11,7 @@
             </tr>
             <tr>
                 <td>
-                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="paper"})" role="button">
+                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Sections", new  {id="paper"})" role="button">
                         <img class="img-responsive grow-big" src="~/Content/Images/paper.png" />
                     </a>
                 </td>
@@ -24,14 +24,14 @@
                     Не бързай да изхвърляш кутията от яйца. Виж как бързо и лесно може да си направиш уникален хеликоптер, който с твоя помощ да полети високо!
                 </td>
                 <td>
-                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="naturalmaterial"})" role="button">
+                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Sections", new  {id="naturalmaterial"})" role="button">
                         <img class="img-responsive grow-big" src="~/Content/Images/naturalmaterial.png" />
                     </a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})" role="button">
+                    <a type="button" class="index-table-button" href="@Url.Action("SetSectionTutoPic", "Sections", new  {id="cardboard"})" role="button">
                         <img class="img-responsive grow-big" src="~/Content/Images/cardboard.png" />
                     </a>
                 </td>
@@ -44,14 +44,14 @@
                     Подготви се за есента с някой от страхотните ни шаблони. Свали, изрежи и ни покажи как се забавляваш!
                 </td>
                 <td>
-                    <a type="button" class="index-table-button" href="@Url.Action("Printables", "Pictures", new  {id="printables"})" role="button">
+                    <a type="button" class="index-table-button" href="@Url.Action("Index", "Printables", new  {id="printables"})" role="button">
                         <img class="img-responsive grow-big" src="~/Content/Images/printables.png" />
                     </a>
                 </td>
             </tr>
             <tr>
                 <td colspan="3" class="index-table-play-now">
-                    Снимай се със своята играчка и @Html.ActionLink("Участвай!", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-play-now grow-big" })
+                    Снимай се със своята играчка и @Html.ActionLink("Участвай!", "GetUploadForm", "Gallery", null, new { @class = "modal-link btn btn-play-now grow-big" })
                 </td>
             </tr>
         </table>

@@ -6,7 +6,7 @@
     <div class="row">
         <div class="upload-row upload-image-section">
             <section id="avatar-upload-box" class="upload-form-section">
-                @using (Ajax.BeginForm("UploadPicture", "Pictures", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "avatar-upload-form" }))
+                @using (Ajax.BeginForm("UploadPicture", "Gallery", null, new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data", id = "avatar-upload-form" }))
                 {
                 @Html.AntiForgeryToken()
                     <label for="file-upload" class="custom-file-upload">
@@ -38,7 +38,7 @@
     </div>
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 upload-row">
-            @using (Html.BeginForm("ProcessForm", "Pictures", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("ProcessForm", "Gallery", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
             <div class="form-horizontal">
 

@@ -15,7 +15,7 @@ using System.Web.Mvc;
 
 namespace KinderFirst.Controllers
 {
-    public class PicturesController : Controller
+    public class GalleryController : Controller
     {
         private const int AvatarScreenWidth = 400;  // ToDo - Change the value of the width of the image on the screen
 
@@ -29,13 +29,6 @@ namespace KinderFirst.Controllers
         public ActionResult Index()
         {
             return View();
-        }
-
-        [HttpGet]
-        public ActionResult SetSectionTutoPic(string id)
-        {
-            var model = new SectionDetails(id);
-            return View(model);
         }
 
         [HttpGet]
@@ -116,19 +109,7 @@ namespace KinderFirst.Controllers
 
             return RedirectToAction("Gallery"); 
         }
-
-        public ActionResult CheckAge(Age item)
-        {
-            DateTime bday = new DateTime(Int32.Parse(item.Year), Int32.Parse(item.Month), Int32.Parse(item.Day));
-            int age = (int)((DateTime.Now - bday).TotalDays / 365.242199);
-            if(age<12)
-            {
-                return Json(new { success = false, errorMessage = "You are under 12 years old and thus not eligible." });
-            }
-            return Json(new { success = true, errorMessage = "You are eligible." });
-        }
-
-
+       
         [HttpPost]
         public ActionResult UploadPicture(IEnumerable<HttpPostedFileBase> files)
         {
@@ -145,28 +126,6 @@ namespace KinderFirst.Controllers
             return PartialView("_UploadForm");
         }
 
-        public ActionResult GetPdf(string name)
-        {
-                string pathSource = Server.MapPath(String.Format("~/Content/Pdf/{0}.pdf",name));
-                FileStream fsSource = new FileStream(pathSource, FileMode.Open, FileAccess.Read);
-                return new FileStreamResult(fsSource, "application/pdf");
-        }
-
-       public ActionResult Printables()
-        {
-           var paths= Directory.EnumerateFiles(Server.MapPath("~/Content/Printables"));
-           
-            string[] stringSeparators = new string[] { "\\Printables\\",".jpg"};
-            List<string> names = new List<string>();
-            string[] result;
-            foreach (var item in paths)
-            {
-                result = item.Split(stringSeparators, StringSplitOptions.RemoveEmptyEntries);
-                names.Add(result[1]);
-            }
-
-            return View(names);
-        }
         public async Task<ActionResult> Like(string itemId)
         {
 

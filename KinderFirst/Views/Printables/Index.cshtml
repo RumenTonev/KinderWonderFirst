@@ -4,7 +4,7 @@
     ViewBag.Title = "Gallery";
 }
 <div class="printables-body">
-  
+
     <h2 class="printables-heading"><span class="white-box">Разгледайте нашите шаблони!</span></h2>
 
     <div class="row">
@@ -13,11 +13,11 @@
             {
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 printables-item">
                     <div class="printables-img-container box-shadow">
-                        <a type="button" class="index-table-button" href="@Url.Action("GetPdf","Pictures",new { name=item})" target = "_blank" role = "button">
+                        <a type="button" class="index-table-button" href="@Url.Action("GetPdf","Printables",new { name=item})" target="_blank" role="button">
                             <img class="printables-item-img" src="@Url.Content(String.Format("~/Content/Printables/{0}.jpg",item))" />
                         </a>
 
-             </div>
+                    </div>
                 </div>
             }
         }

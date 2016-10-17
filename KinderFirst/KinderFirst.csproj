@@ -128,7 +128,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PicturesController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\PrintablesController.cs" />
+    <Compile Include="Controllers\SectionsController.cs" />
     <Compile Include="Models\SectionDetails.cs" />
     <Compile Include="DocumentDBRepository.cs" />
     <Compile Include="Global.asax.cs">
@@ -264,21 +266,19 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Pictures\SetSectionTutoPic.cshtml" />
-    <Content Include="Views\Pictures\SetTutorialTutoPic.cshtml" />
+    <Content Include="Views\Sections\SetSectionTutoPic.cshtml" />
     <Content Include="Views\AdminUpload\UpAdminPhoto.cshtml" />
     <Content Include="Views\AdminUpload\Index.cshtml" />
     <Content Include="Views\Home\Rewards.cshtml" />
-    <Content Include="Views\Pictures\Gallery.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Shared\_UploadForm.cshtml" />
-    <Content Include="Views\Pictures\_PartialPdf.cshtml" />
-    <Content Include="Views\Pictures\Printables.cshtml" />
     <Content Include="Views\Shared\_AgeFilter.cshtml" />
     <Content Include="Views\Shared\_LayoutNoNavigation.cshtml" />
     <Content Include="Views\Home\SiteTermsOfUse.cshtml" />
     <Content Include="Views\Home\SiteRequirements.cshtml" />
     <Content Include="Views\Home\Contacts.cshtml" />
     <Content Include="Views\Home\PlayNow.cshtml" />
+    <Content Include="Views\Printables\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

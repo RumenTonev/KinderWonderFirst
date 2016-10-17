@@ -27,13 +27,13 @@
                     <li class="dropdown navbar-btn-custom">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Уроци</a>
                         <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="paper"})">Хартия</a></li>
-                            <li><a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="naturalmaterial"})">Подръчни материали</a></li>
-                            <li><a href="@Url.Action("SetSectionTutoPic", "Pictures", new  {id="cardboard"})">Картон</a></li>
-                            <li><a href="@Url.Action("Printables", "Pictures", new  {id="printables"})">Шаблони</a></li>
+                            <li><a href="@Url.Action("SetSectionTutoPic", "Sections", new  {id="paper"})">Хартия</a></li>
+                            <li><a href="@Url.Action("SetSectionTutoPic", "Sections", new  {id="naturalmaterial"})">Подръчни материали</a></li>
+                            <li><a href="@Url.Action("SetSectionTutoPic", "Sections", new  {id="cardboard"})">Картон</a></li>
+                            <li><a href="@Url.Action("Index", "Printables", new  {id="printables"})">Шаблони</a></li>
                         </ul>
                     </li>
-                    <li class="navbar-btn-custom">@Html.ActionLink("Галерия", "Gallery", "Pictures")</li>
+                    <li class="navbar-btn-custom">@Html.ActionLink("Галерия", "Index", "Gallery")</li>
                     <li class="navbar-btn-custom">@Html.ActionLink("Награди", "Rewards", "Home")</li>
                     <li class="navbar-btn-custom">@Html.ActionLink("Печеливши", "Winners", "Home")</li>
                     <li class="navbar-btn-custom">@Html.ActionLink("Правила", "Rules", "Home")</li>

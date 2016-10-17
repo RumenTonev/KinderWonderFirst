@@ -4,7 +4,7 @@
 <div class="modal-body age-filter-body">
     <div class="row">
 
-            @using (Ajax.BeginForm("CheckAge", "Pictures", new AjaxOptions()
+            @using (Ajax.BeginForm("CheckAge", "Home", new AjaxOptions()
             {
                 HttpMethod = "POST",
                 OnBegin = "OnAjaxRequestBegin",

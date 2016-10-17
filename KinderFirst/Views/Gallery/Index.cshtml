@@ -7,7 +7,7 @@
 }
 
 <div class="gallery-body">
-    @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Gallery", new { page }))
     <div class="row">
 
         @{
@@ -82,9 +82,8 @@
 
         </div>
     </div>
-    @Html.PagedListPager(Model, page => Url.Action("Gallery", "Pictures", new { page }))
+    @Html.PagedListPager(Model, page => Url.Action("Index", "Gallery", new { page }))
     @Scripts.Render("~/bundles/toastr")
-    @*@Html.ActionLink("Участвай", "GetUploadForm", "Pictures", null, new { @class = "modal-link btn btn-success" })*@
 </div>
 
 <script type="text/javascript">
